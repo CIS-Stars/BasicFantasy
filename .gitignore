@@ -7,6 +7,6 @@
 /build
 /captures
 .externalNativeBuild
-
+instapk.properties
 .idea/instapk.xml
 instapk.log*
