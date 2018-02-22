@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Attribute Score Names -->
+    <string name="strength">Strength</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="wisdom">Wisdom</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="constitution">Constitution</string>
+    <string name="charisma">Charisma</string>
+
+    <string name="strength_short">Str</string>
+    <string name="intelligence_short">Int</string>
+    <string name="wisdom_short">Wis</string>
+    <string name="dexterity_short">Dex</string>
+    <string name="constitution_short">Con</string>
+    <string name="charisma_short">Cha</string>
+</resources>
