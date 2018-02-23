@@ -14,4 +14,33 @@
     <string name="dexterity_short">Dex</string>
     <string name="constitution_short">Con</string>
     <string name="charisma_short">Cha</string>
+
+    <!-- Race Names -->
+    <string name="dwarf">Dwarf</string>
+    <string name="elf">Elf</string>
+    <string name="halfling">Halfling</string>
+    <string name="human">Human</string>
+
+
+    <!-- CLass Names -->
+    <string name="cleric">Cleric</string>
+    <string name="fighter">Fighter</string>
+    <string name="magic_user">Magic User</string>
+    <string name="thief">Thief</string>
+    <string name="fighter_magic_user">Fighter/MU</string>
+    <string name="magic_user_thief">MU/Thief</string>
+
+    <!-- mONEY nAMES -->
+    <string name="copper">Copper</string>
+    <string name="electrum">Electrum</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="platinum">Platinum</string>
+
+    <string name="copper_short">cp</string>
+    <string name="silver_short">sp</string>
+    <string name="electrum_short">ep</string>
+    <string name="gold_short">gp</string>
+    <string name="platinum_short">pp</string>
+
 </resources>
