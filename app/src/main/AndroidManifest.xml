@@ -25,10 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CreateCharacterActivity"
-            android:label="@string/title_activity_create_character"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".RollAttributesActivity">
         </activity>
     </application>
 
