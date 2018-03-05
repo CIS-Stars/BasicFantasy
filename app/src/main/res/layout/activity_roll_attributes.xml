@@ -196,13 +196,13 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
-            android:id="@+id/roll_scores"
+            android:id="@+id/roll_stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/roll_scores"/>
 
         <Button
-            android:id="@+id/accept_scores"
+            android:id="@+id/accept_stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/accept_scores"/>

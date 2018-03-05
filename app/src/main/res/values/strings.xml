@@ -5,6 +5,6 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="create_character">Create A Character</string>
     <string name="delete_character">Delete A Character</string>
-    <string name="roll_scores">Roll Scores</string>
-    <string name="accept_scores">Accept Scores</string>
+    <string name="roll_scores">Roll Stats</string>
+    <string name="accept_scores">Accept Stats</string>
 </resources>
