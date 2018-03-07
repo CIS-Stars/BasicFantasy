@@ -7,4 +7,8 @@
     <string name="delete_character">Delete A Character</string>
     <string name="roll_scores">Roll Stats</string>
     <string name="accept_scores">Accept Stats</string>
+    <string name="roll_stats_title">Roll Your Stats</string>
+    <string name="choose_race_title">Choose Your Race</string>
+    <string name="accept_race">Accept Race</string>
+    <string name="back">Back</string>
 </resources>

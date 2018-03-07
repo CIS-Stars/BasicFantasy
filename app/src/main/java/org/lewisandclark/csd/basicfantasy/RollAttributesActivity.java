@@ -52,7 +52,7 @@ public class RollAttributesActivity extends AppCompatActivity {
         mChaTextView = findViewById(R.id.cha_score);
         mChaTextView.setText(Integer.toString(mStatArray[5]));
 
-        mRollStats = findViewById(R.id.roll_stats);
+        mRollStats = findViewById(R.id.roll_stats_button);
         mRollStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +72,7 @@ public class RollAttributesActivity extends AppCompatActivity {
             }
         });
 
-        mAcceptStats = findViewById(R.id.accept_stats);
+        mAcceptStats = findViewById(R.id.accept_stats_button);
         mAcceptStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
