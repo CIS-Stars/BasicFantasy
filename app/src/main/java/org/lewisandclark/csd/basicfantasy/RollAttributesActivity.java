@@ -11,11 +11,6 @@ import android.widget.TextView;
 
 public class RollAttributesActivity extends AppCompatActivity {
 
-    public static Intent newIntent(Context packageContext){
-        Intent theIntent = new Intent(packageContext, RollAttributesActivity.class);
-        return theIntent;
-    }
-
     public static final String TAG = "RollAttributesActivity";
 
     private Button mRollStats;
@@ -28,6 +23,11 @@ public class RollAttributesActivity extends AppCompatActivity {
     private TextView mChaTextView;
 
     private int[] mStatArray = {0,0,0,0,0,0};
+
+    public static Intent newIntent(Context packageContext){
+        Intent theIntent = new Intent(packageContext, RollAttributesActivity.class);
+        return theIntent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class RollAttributesActivity extends AppCompatActivity {
 
         mRollStats = findViewById(R.id.roll_stats_button);
         mRollStats.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 //generate the random stats
@@ -78,6 +79,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //put stats into player character record.
                 Log.d(TAG, "AcceptStats clicked.");
+                Intent intent = ChooseRaceActivity.newIntent(RollAttributesActivity.this, mStatArray);
+                startActivity(intent);
             }
         });
 
