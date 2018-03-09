@@ -8,12 +8,12 @@
     <string name="constitution">Constitution</string>
     <string name="charisma">Charisma</string>
 
-    <string name="strength_short">Str</string>
-    <string name="intelligence_short">Int</string>
-    <string name="wisdom_short">Wis</string>
-    <string name="dexterity_short">Dex</string>
-    <string name="constitution_short">Con</string>
-    <string name="charisma_short">Cha</string>
+    <string name="strength_short">STR</string>
+    <string name="intelligence_short">INT</string>
+    <string name="wisdom_short">WIS</string>
+    <string name="dexterity_short">DEX</string>
+    <string name="constitution_short">CON</string>
+    <string name="charisma_short">CHA</string>
 
     <!-- Race Names -->
     <string name="dwarf">Dwarf</string>

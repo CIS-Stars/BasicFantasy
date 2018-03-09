@@ -12,4 +12,10 @@
     <string name="detailed_screen_con">CON</string>
     <string name="detailed_screen_cha">CHA</string>
     <string name="weapon_screen_add_weapon">Add Weapon</string>
+    <string name="roll_scores">Roll Stats</string>
+    <string name="accept_scores">Accept Stats</string>
+    <string name="roll_stats_title">Roll Your Stats</string>
+    <string name="choose_race_title">Choose Your Race</string>
+    <string name="accept_race">Accept Race</string>
+    <string name="back">Back</string>
 </resources>
