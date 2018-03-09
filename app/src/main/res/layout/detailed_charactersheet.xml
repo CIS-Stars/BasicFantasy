@@ -14,16 +14,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Race" />
+            android:inputType="textPersonName" />
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Class" />
+            android:inputType="textPersonName" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -39,16 +39,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Age" />
+            android:inputType="textPersonName" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -64,16 +64,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Level" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Exp:" />
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
