@@ -5,4 +5,11 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="create_character">Create A Character</string>
     <string name="delete_character">Delete A Character</string>
+    <string name="detailed_screen_str">STR</string>
+    <string name="detailed_screen_int">INT</string>
+    <string name="detailed_screen_wis">WIS</string>
+    <string name="detailed_screen_dex">DEX</string>
+    <string name="detailed_screen_con">CON</string>
+    <string name="detailed_screen_cha">CHA</string>
+    <string name="weapon_screen_add_weapon">Add Weapon</string>
 </resources>
