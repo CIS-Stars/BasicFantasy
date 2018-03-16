@@ -51,8 +51,7 @@
             android:id="@+id/radio_human"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/human"
-            android:checked="true"/>
+            android:text="@string/human"/>
 
 
     </RadioGroup>

@@ -12,25 +12,5 @@ import java.io.Serializable;
 
 public enum Attribute implements Serializable {
 
-    STR(R.string.strength),
-    INT(R.string.intelligence),
-    WIS(R.string.wisdom),
-    DEX(R.string.dexterity),
-    CON(R.string.constitution),
-    CHA(R.string.charisma);
-
-
-    /**
-     * The resource id for the attribute's name.
-     */
-    private int mResId;
-
-
-    Attribute(int resId) {
-        mResId = resId;
-    }
-
-    public int getResId() {
-        return mResId;
-    }
+    STR,INT,WIS,DEX,CON,CHA;
 }
