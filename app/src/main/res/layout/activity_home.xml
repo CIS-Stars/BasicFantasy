@@ -8,8 +8,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/existingCharacter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Existing Character(s):" />
+
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_choose_character"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -25,7 +31,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/open_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

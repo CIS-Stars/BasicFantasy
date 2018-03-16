@@ -13,7 +13,7 @@ public class PlayerCharacter {
     //Standard non-crucial stuff
     private String mName;
     private String mSex;
-    private String mAge;
+    private int mAge;
     private int mLevel;
     private int mXP;
 
@@ -44,6 +44,35 @@ public class PlayerCharacter {
         this.ID = id;
     }
 
+    public PlayerCharacter(){
+        mName = "Jared";
+        mSex = "male";
+        mAge = 12;
+        mLevel = 1;
+        mXP = 0;
+
+        mStatArray[Attribute.STR.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.INT.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.WIS.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.DEX.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.CON.ordinal()] = new AttributeScore(3);
+        mStatArray[Attribute.CHA.ordinal()] = new AttributeScore(12);
+
+        mTotalHitPoints = 10;
+        mCurrentHitPoints = 8;
+
+        mRace = Race.HUMAN;
+        mPlayerClass = CharacterClass.FIGHTER;
+
+        mArmorClass = 14;
+
+        mBaseAttackBonus = 1;
+        mCurrentAttackBonus = 2;
+
+        mBaseMovement =30;
+        mCurrentMovement = 35;
+    }
+
     public int getID() {
         return ID;
     }
@@ -68,11 +97,11 @@ public class PlayerCharacter {
         mSex = sex;
     }
 
-    public String getAge() {
+    public int getAge() {
         return mAge;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         mAge = age;
     }
 

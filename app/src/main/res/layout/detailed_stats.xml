@@ -6,74 +6,119 @@ android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_str"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_str" />
 
+        <TextView
+            android:id="@+id/text_view_str"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_str_stat" />
+
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_int"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_int" />
+
+        <TextView
+            android:id="@+id/text_view_int"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_int_stat" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_column="0"
         android:layout_row="1"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_wis"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_wis" />
 
+        <TextView
+            android:id="@+id/text_view_wis"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_wis_stat" />
+
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_dex"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_dex" />
+
+        <TextView
+            android:id="@+id/text_view_dex"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_dex_stat" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_column="0"
         android:layout_row="2"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_con"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_con" />
 
+        <TextView
+            android:id="@+id/text_view_con"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_con_stat" />
+
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_text_cha"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/detailed_screen_cha" />
+
+        <TextView
+            android:id="@+id/text_view_cha"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/detailed_screen_cha_stat" />
     </LinearLayout>
 </GridLayout>
