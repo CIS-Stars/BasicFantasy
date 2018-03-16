@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<PlayerCharacter>();
-
+    public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<>();
+    public static int sCurrentCharacterIndex;
 
     private Button mCreateCharacter;
-    private int mCurrentCharacterIndex;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,10 @@ public class HomeActivity extends AppCompatActivity {
         mCreateCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCurrentCharacterIndex = sCharacters.size();
+                sCurrentCharacterIndex = sCharacters.size();
                 sCharacters.add(new PlayerCharacter(sCharacters.size()));
                 Intent theIntent = RollAttributesActivity
-                        .newIntent(HomeActivity.this, mCurrentCharacterIndex);
+                        .newIntent(HomeActivity.this);
                 startActivity(theIntent);
             }
         });
