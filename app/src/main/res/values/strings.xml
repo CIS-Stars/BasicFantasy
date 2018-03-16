@@ -18,4 +18,6 @@
     <string name="choose_race_title">Choose Your Race</string>
     <string name="accept_race">Accept Race</string>
     <string name="back">Back</string>
+    <string name="choose_class_title">Choose Your Class</string>
+    <string name="accept_class">Accept Class</string>
 </resources>

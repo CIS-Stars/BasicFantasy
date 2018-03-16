@@ -6,9 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
 
+    public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<PlayerCharacter>();
+
+
     private Button mCreateCharacter;
+    private int mCurrentCharacterIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +25,10 @@ public class HomeActivity extends AppCompatActivity {
         mCreateCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent theIntent = RollAttributesActivity.newIntent(HomeActivity.this);
+                mCurrentCharacterIndex = sCharacters.size();
+                sCharacters.add(new PlayerCharacter(sCharacters.size()));
+                Intent theIntent = RollAttributesActivity
+                        .newIntent(HomeActivity.this, mCurrentCharacterIndex);
                 startActivity(theIntent);
             }
         });
