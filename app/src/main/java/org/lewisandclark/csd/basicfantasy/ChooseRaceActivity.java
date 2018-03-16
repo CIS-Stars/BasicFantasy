@@ -11,10 +11,6 @@ import android.widget.RadioGroup;
 
 public class ChooseRaceActivity extends AppCompatActivity {
 
-
-    public static final String EXTRA_CURRENT_CHARACTER = "current character index";
-
-    private int mCharacterIndex;
     private AttributeScore[] mStatArray;
     private Race mNewRace;
 
@@ -23,13 +19,13 @@ public class ChooseRaceActivity extends AppCompatActivity {
     private RadioButton mRadioElfButton;
     private RadioButton mRadioHalflingButton;
     private RadioButton mRadioHumanButton;
-    private RadioButton mRadioSelectedButton;
+
     private Button mAcceptButton;
     private Button mBackButton;
 
-    public static Intent newIntent(Context packageContext, int index){
+    public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, ChooseRaceActivity.class);
-        theIntent.putExtra(EXTRA_CURRENT_CHARACTER, index );
+        //Intent Extras go here
         return theIntent;
     }
 
@@ -38,8 +34,7 @@ public class ChooseRaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_race);
 
-        mCharacterIndex = getIntent().getIntExtra(EXTRA_CURRENT_CHARACTER, 0);
-        mStatArray = HomeActivity.sCharacters.get(mCharacterIndex).getStatArray();
+        mStatArray = HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatArray();
 
         mRadioRaceGroup = findViewById(R.id.radio_race_group);
 
@@ -49,12 +44,12 @@ public class ChooseRaceActivity extends AppCompatActivity {
         mRadioHumanButton = findViewById(R.id.radio_human);
         mRadioHumanButton.setChecked(true);
 
-        /** we need to deactivate ineligible races.
-         *  if the attributes don't meet certain criteria, the player can't choose that race:
-         *  Dwarves: must have CON at least 9, CHA maximum 17
-         *  Elves: INT min of 9, CON max 17
-         *  Halflings: DEX min 9, STR max 17
-         *  Humans: no min or max
+        /* we need to deactivate ineligible races.
+           if the attributes don't meet certain criteria, the player can't choose that race:
+           Dwarves: must have CON at least 9, CHA maximum 17
+           Elves: INT min of 9, CON max 17
+           Halflings: DEX min 9, STR max 17
+           Humans: no min or max
          */
         if(mStatArray[Attribute.CON.ordinal()].getScore() < 9
                 || mStatArray[Attribute.CHA.ordinal()].getScore() > 17){mRadioDwarfButton.setEnabled(false);}
@@ -69,7 +64,6 @@ public class ChooseRaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int selectedId = mRadioRaceGroup.getCheckedRadioButtonId();
-                mRadioSelectedButton = findViewById(selectedId);
 
                 switch(selectedId){
 
@@ -83,9 +77,9 @@ public class ChooseRaceActivity extends AppCompatActivity {
                                                     break;
                 }
 
-                HomeActivity.sCharacters.get(mCharacterIndex).setRace(mNewRace);
+                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setRace(mNewRace);
 
-                Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this, mCharacterIndex);
+                Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this);
                 startActivity(intent);
 
                 //testing button response

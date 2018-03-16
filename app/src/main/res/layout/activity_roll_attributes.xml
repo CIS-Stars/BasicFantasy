@@ -215,6 +215,12 @@
             android:layout_height="wrap_content"
             android:text="@string/accept_scores"/>
 
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"/>
+
     </LinearLayout>
 
 </LinearLayout>
