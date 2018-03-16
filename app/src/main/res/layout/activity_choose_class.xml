@@ -5,6 +5,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.lewisandclark.csd.basicfantasy.ChooseClassActivity">
+    tools:context="org.lewisandclark.csd.basicfantasy.RollAttributesActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/class_activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:text="@string/choose_class_title"
+        android:textSize="30sp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_class_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/class_activity_title">
+
+        <RadioButton
+            android:id="@+id/radio_cleric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cleric"/>
+
+        <RadioButton
+            android:id="@+id/radio_fighter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fighter"/>
+
+        <RadioButton
+            android:id="@+id/radio_magic_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/magic_user"/>
+
+        <RadioButton
+            android:id="@+id/radio_thief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/thief"/>
+
+        <RadioButton
+            android:id="@+id/radio_fighter_magic_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fighter_magic_user"/>
+
+        <RadioButton
+            android:id="@+id/radio_magic_user_thief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/magic_user_thief"/>
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/radio_class_group"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <Button
+            android:id="@+id/accept_class_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/accept_class"
+            app:layout_constraintTop_toBottomOf="@+id/radio_class_group"/>
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            app:layout_constraintTop_toBottomOf="@+id/accept_class_button"/>
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
