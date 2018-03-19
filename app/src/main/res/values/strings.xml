@@ -14,10 +14,23 @@
     <string name="weapon_screen_add_weapon">Add Weapon</string>
     <string name="roll_scores">Roll Stats</string>
     <string name="accept_scores">Accept Stats</string>
-    <string name="roll_stats_title">Roll Your Stats</string>
+    <string name="roll_stats_title">Fill In Your Stats</string>
     <string name="choose_race_title">Choose Your Race</string>
     <string name="accept_race">Accept Race</string>
     <string name="back">Back</string>
     <string name="choose_class_title">Choose Your Class</string>
     <string name="accept_class">Accept Class</string>
+    <string name="enter_pers_info_title">Enter Your Personal Info</string>
+    <string name="character_name">Name:</string>
+    <string name="character_age">Age:</string>
+    <string name="roll_age">Roll Age</string>
+    <string name="roll_button">Roll It</string>
+    <string name="character_height">Height:(in)</string>
+    <string name="character_weight">Weight:(lb)</string>
+    <string name="character_eye_color">Eye Color:</string>
+    <string name="character_hair_color">Hair Color:</string>
+    <string name="clear_all">Clear All</string>
+    <string name="save_info">Save Info</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
 </resources>

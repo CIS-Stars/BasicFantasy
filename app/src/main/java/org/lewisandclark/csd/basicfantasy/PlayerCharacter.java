@@ -12,8 +12,8 @@ public class PlayerCharacter {
 
     //Standard non-crucial stuff
     private String mName;
-    private String mSex;
-    private String mAge;
+    private Gender mSex;
+    private int mAge;
     private int mLevel;
     private int mXP;
 
@@ -22,6 +22,8 @@ public class PlayerCharacter {
     //private HashMap<Money, Integer> mMoney = new HashMap<>();
     // abandoned this because forums say is a memory hog.
 
+
+    private int mStatRollCounter;
     private AttributeScore[] mStatArray = new AttributeScore[6]; //[STR,INT,WIS,DEX,CON,CHA]
     private int[] mMoneyArray = new int[5]; //[PP,GP,EP,SP,CP]
     private ArrayList<Treasure> mTreasureList = new ArrayList<Treasure>();
@@ -41,8 +43,32 @@ public class PlayerCharacter {
     private int mCurrentMovement;
 
     public PlayerCharacter(int id) {
+
         this.ID = id;
+        this.mStatRollCounter = 0;
     }
+
+    /**
+     * Generic Constructor for testing
+     */
+    public PlayerCharacter(){
+        this.mName = "Fenton Falomar";
+        this.mSex = Gender.MALE;
+        this.mRace = Race.HUMAN;
+        this.mPlayerClass = CharacterClass.FIGHTER;
+        this.mAge = 20;
+        this.mLevel = 1;
+        this.mXP = 0;
+
+        this.mStatRollCounter = 1;
+        this.mStatArray[Attribute.STR.ordinal()] = new AttributeScore(15);
+        this.mStatArray[Attribute.INT.ordinal()] = new AttributeScore(10);
+        this.mStatArray[Attribute.WIS.ordinal()] = new AttributeScore(9);
+        this.mStatArray[Attribute.DEX.ordinal()] = new AttributeScore(12);
+        this.mStatArray[Attribute.CON.ordinal()] = new AttributeScore(12);
+        this.mStatArray[Attribute.CHA.ordinal()] = new AttributeScore(5);
+
+        }
 
     public int getID() {
         return ID;
@@ -60,19 +86,19 @@ public class PlayerCharacter {
         mName = name;
     }
 
-    public String getSex() {
+    public Gender getSex() {
         return mSex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Gender sex) {
         mSex = sex;
     }
 
-    public String getAge() {
+    public int getAge() {
         return mAge;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         mAge = age;
     }
 
@@ -91,6 +117,16 @@ public class PlayerCharacter {
     public void setXP(int XP) {
         mXP = XP;
     }
+
+    public int getStatRollCounter() {
+        return mStatRollCounter;
+    }
+
+    public void setStatRollCounter(int statRollCounter) {
+        mStatRollCounter = statRollCounter;
+    }
+
+    public void incrementStatRollCounter(){ mStatRollCounter++;}
 
     public AttributeScore[] getStatArray() {
         return mStatArray;

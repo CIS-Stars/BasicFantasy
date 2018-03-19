@@ -64,7 +64,7 @@ public class ChooseClassActivity extends AppCompatActivity {
         }
 
 
-        mAcceptButton = findViewById(R.id.accept_race_button);
+        mAcceptButton = findViewById(R.id.accept_class_button);
         mAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +88,9 @@ public class ChooseClassActivity extends AppCompatActivity {
                 }
 
                 HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setPlayerClass(mNewClass);
+
+                Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
+                startActivity(intent);
             }
         });
 

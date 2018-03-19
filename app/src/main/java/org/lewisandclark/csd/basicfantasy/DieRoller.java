@@ -13,6 +13,18 @@ import java.util.Random;
 public class DieRoller {
     private static Random sRandom;
 
+    /**
+     * returns a random index for use in getting a random array element
+     * @param arrayLength
+     * @return
+     */
+    public static int rollIndex(int arrayLength){
+        if (sRandom == null) {
+            sRandom = new Random();
+        }
+        return sRandom.nextInt(arrayLength);
+    }
+
     public static int statRoll(){
 
         return d6() + d6() + d6();
