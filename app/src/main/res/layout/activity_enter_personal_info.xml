@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.lewisandclark.csd.basicfantasy.EnterPersonalInfoActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:text="@string/enter_pers_info_title"
+        android:textSize="30sp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|fill_horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:outlineProvider="bounds">
+
+        <TableRow
+            android:id="@+id/name_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_name"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/name_editbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="Character Name"
+                android:inputType="textCapWords"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Fenton Falomar"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/age_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/age_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_age"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/age_editbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="Starting Age"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="23"/>
+
+            <Button
+                android:id="@+id/age_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/roll_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/height_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/height_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_height"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/height_editbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="Inches"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="60"/>
+
+            <Button
+                android:id="@+id/height_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/roll_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/weight_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/weight_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_weight"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/weight_editbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="Pounds"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="120"/>
+
+            <Button
+                android:id="@+id/weight_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/roll_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/eye_color_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/eye_color_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_eye_color"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/eye_color_editbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="textCapWords"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Aqua"/>
+
+            <Button
+                android:id="@+id/eye_color_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/roll_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/hair_color_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/hair_color_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/character_hair_color"
+                android:gravity="start"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/hair_color_editbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="textCapWords"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Silver"/>
+
+            <Button
+                android:id="@+id/hair_color_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/roll_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/clear_fields_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_all"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <Button
+            android:id="@+id/save_info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_info"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    </LinearLayout>
+</LinearLayout>

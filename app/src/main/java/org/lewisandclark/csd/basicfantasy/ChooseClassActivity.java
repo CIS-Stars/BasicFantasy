@@ -50,6 +50,8 @@ public class ChooseClassActivity extends AppCompatActivity {
         mRadioFighterMUButton = findViewById(R.id.radio_fighter_magic_user);
         mRadioMUThiefButton = findViewById(R.id.radio_magic_user_thief);
 
+        mRadioFighterButton.setChecked(true);
+
         /*deactivate ineligible class buttons
            if the characgter is a dwarf or halfing, they can't be a magic-user.
            also, unless the chaacter is an elf, they can't be a multi-class
@@ -64,7 +66,7 @@ public class ChooseClassActivity extends AppCompatActivity {
         }
 
 
-        mAcceptButton = findViewById(R.id.accept_race_button);
+        mAcceptButton = findViewById(R.id.accept_class_button);
         mAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +90,9 @@ public class ChooseClassActivity extends AppCompatActivity {
                 }
 
                 HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setPlayerClass(mNewClass);
+
+                Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
+                startActivity(intent);
             }
         });
 

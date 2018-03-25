@@ -31,6 +31,8 @@
         </activity>
         <activity android:name=".ChooseClassActivity">
         </activity>
+        <activity android:name=".EnterPersonalInfoActivity">
+        </activity>
     </application>
 
 </manifest>
