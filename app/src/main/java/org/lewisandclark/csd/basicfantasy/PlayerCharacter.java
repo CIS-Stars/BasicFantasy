@@ -16,31 +16,39 @@ public class PlayerCharacter {
     private int mAge;
     private int mLevel;
     private int mXP;
-
-    //Hashmaps
-    //private HashMap<Attribute, AttributeScore> mAttributes = new HashMap<>();
-    //private HashMap<Money, Integer> mMoney = new HashMap<>();
-    // abandoned this because forums say is a memory hog.
-
-
-    private int mStatRollCounter;
-    private AttributeScore[] mStatArray = new AttributeScore[6]; //[STR,INT,WIS,DEX,CON,CHA]
-    private int[] mMoneyArray = new int[5]; //[PP,GP,EP,SP,CP]
-    private ArrayList<Treasure> mTreasureList = new ArrayList<Treasure>();
-
-    private int mTotalHitPoints;
-    private int mCurrentHitPoints;
-
     private Race mRace;
     private CharacterClass mPlayerClass;
 
+    private int mStatRollCounter;
+    private AttributeScore[] mStatArray = new AttributeScore[6]; //[STR,INT,WIS,DEX,CON,CHA]
+
+    private int mTotalHitPoints;
+    private int mCurrentHitPoints;
     private int mArmorClass;
 
     private int mBaseAttackBonus;
-    private int mCurrentAttackBonus;
+    private int mMeleeAttackBonus;
+    private int mRangedAttackBonus;
 
     private int mBaseMovement;
     private int mCurrentMovement;
+
+    private int mAbilityRoll;
+
+    private int mDeathRayPoisonSave;
+    private int mDeathRayPosionMod;
+    private int mWandSave;
+    private int mWandMod;
+    private int mParalysisStoneSave;
+    private int mParalysisStoneMod;
+    private int mDragonBreathSave;
+    private int mDragonBreathMod;
+    private int mRodStaveSpellSave;
+    private int mRodStaveSpellMod;
+
+    private int[] mMoneyArray = new int[5]; //[PP,GP,EP,SP,CP]
+    private ArrayList<Treasure> mTreasureList = new ArrayList<Treasure>();
+    private ArrayList<Item> mEquipmentList = new ArrayList<>();
 
     public PlayerCharacter(int id) {
 
@@ -200,12 +208,20 @@ public class PlayerCharacter {
         mBaseAttackBonus = baseAttackBonus;
     }
 
-    public int getCurrentAttackBonus() {
-        return mCurrentAttackBonus;
+    public int getMeleeAttackBonus() {
+        return mMeleeAttackBonus;
     }
 
-    public void setCurrentAttackBonus(int currentAttackBonus) {
-        mCurrentAttackBonus = currentAttackBonus;
+    public void setMeleeAttackBonus(int meleeAttackBonus) {
+        mMeleeAttackBonus = meleeAttackBonus;
+    }
+
+    public int getRangedAttackBonus() {
+        return mRangedAttackBonus;
+    }
+
+    public void setRangedAttackBonus(int rangedAttackBonus) {
+        mRangedAttackBonus = rangedAttackBonus;
     }
 
     public int getBaseMovement() {
@@ -222,5 +238,93 @@ public class PlayerCharacter {
 
     public void setCurrentMovement(int currentMovement) {
         mCurrentMovement = currentMovement;
+    }
+
+    public int getAbilityRoll() {
+        return mAbilityRoll;
+    }
+
+    public void setAbilityRoll(int abilityRoll) {
+        mAbilityRoll = abilityRoll;
+    }
+
+    public int getDeathRayPoisonSave() {
+        return mDeathRayPoisonSave;
+    }
+
+    public void setDeathRayPoisonSave(int deathRayPoisonSave) {
+        mDeathRayPoisonSave = deathRayPoisonSave;
+    }
+
+    public int getDeathRayPosionMod() {
+        return mDeathRayPosionMod;
+    }
+
+    public void setDeathRayPosionMod(int deathRayPosionMod) {
+        mDeathRayPosionMod = deathRayPosionMod;
+    }
+
+    public int getWandSave() {
+        return mWandSave;
+    }
+
+    public void setWandSave(int wandSave) {
+        mWandSave = wandSave;
+    }
+
+    public int getWandMod() {
+        return mWandMod;
+    }
+
+    public void setWandMod(int wandMod) {
+        mWandMod = wandMod;
+    }
+
+    public int getParalysisStoneSave() {
+        return mParalysisStoneSave;
+    }
+
+    public void setParalysisStoneSave(int paralysisStoneSave) {
+        mParalysisStoneSave = paralysisStoneSave;
+    }
+
+    public int getParalysisStoneMod() {
+        return mParalysisStoneMod;
+    }
+
+    public void setParalysisStoneMod(int paralysisStoneMod) {
+        mParalysisStoneMod = paralysisStoneMod;
+    }
+
+    public int getDragonBreathSave() {
+        return mDragonBreathSave;
+    }
+
+    public void setDragonBreathSave(int dragonBreathSave) {
+        mDragonBreathSave = dragonBreathSave;
+    }
+
+    public int getDragonBreathMod() {
+        return mDragonBreathMod;
+    }
+
+    public void setDragonBreathMod(int dragonBreathMod) {
+        mDragonBreathMod = dragonBreathMod;
+    }
+
+    public int getRodStaveSpellSave() {
+        return mRodStaveSpellSave;
+    }
+
+    public void setRodStaveSpellSave(int rodStaveSpellSave) {
+        mRodStaveSpellSave = rodStaveSpellSave;
+    }
+
+    public int getRodStaveSpellMod() {
+        return mRodStaveSpellMod;
+    }
+
+    public void setRodStaveSpellMod(int rodStaveSpellMod) {
+        mRodStaveSpellMod = rodStaveSpellMod;
     }
 }

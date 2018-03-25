@@ -50,6 +50,8 @@ public class ChooseClassActivity extends AppCompatActivity {
         mRadioFighterMUButton = findViewById(R.id.radio_fighter_magic_user);
         mRadioMUThiefButton = findViewById(R.id.radio_magic_user_thief);
 
+        mRadioFighterButton.setChecked(true);
+
         /*deactivate ineligible class buttons
            if the characgter is a dwarf or halfing, they can't be a magic-user.
            also, unless the chaacter is an elf, they can't be a multi-class

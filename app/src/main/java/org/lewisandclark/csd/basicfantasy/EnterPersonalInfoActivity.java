@@ -18,6 +18,11 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
     private Button mClearButton;
     private Button mSaveButton;
     private Button mBackButton;
+    private Button mRollEyeColor;
+    private Button mRollHairColor;
+    private Button mRollAge;
+    private Button mRollHeight;
+    private Button mRollWeight;
 
     private EditText mEditName;
     private EditText mEditAge;
@@ -45,6 +50,46 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
         mEditEyeColor = findViewById(R.id.eye_color_editbox);
         mEditHairColor = findViewById(R.id.hair_color_editbox);
 
+        mRollAge = findViewById(R.id.age_button);
+        mRollAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEditAge.setText(Integer.toString(20));
+            }
+        });
+
+        mRollHeight = findViewById(R.id.height_button);
+        mRollHeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEditHeight.setText(Integer.toString(72));
+            }
+        });
+
+        mRollWeight = findViewById(R.id.weight_button);
+        mRollWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEditWeight.setText(Integer.toString(200));
+            }
+        });
+
+        mRollEyeColor = findViewById(R.id.eye_color_button);
+        mRollEyeColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEditEyeColor.setText(EYE_COLOR[DieRoller.rollIndex(EYE_COLOR.length)]);
+            }
+        });
+
+        mRollHairColor = findViewById(R.id.hair_color_button);
+        mRollHairColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEditHairColor.setText(HAIR_COLOR[DieRoller.rollIndex(HAIR_COLOR.length)]);
+            }
+        });
+
         mClearButton = findViewById(R.id.clear_fields_button);
         mClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +100,14 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
                 mEditWeight.setText("");
                 mEditEyeColor.setText("");
                 mEditHairColor.setText("");
+            }
+        });
+
+        mBackButton = findViewById(R.id.back_button);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
