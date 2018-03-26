@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,9 @@ public class HomeActivity extends AppCompatActivity {
     public static int sCurrentCharacterIndex;
 
     private Spinner mCharacterListSpinner;
-    private Button mCreateCharacter;
+    private Button mCreateCharacterButton;
+    private Button mOpenCharacterButton;
+    private Button mDeleteCharacterButton;
 
 
     @Override
@@ -38,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
         mCharacterListSpinner = findViewById(R.id.character_list_spinner);
         mCharacterListSpinner.setAdapter(adapter);
 
-        mCreateCharacter = findViewById(R.id.create_button);
-        mCreateCharacter.setOnClickListener(new View.OnClickListener() {
+        mCreateCharacterButton = findViewById(R.id.create_button);
+        mCreateCharacterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sCurrentCharacterIndex = sCharacters.size();
@@ -47,6 +50,24 @@ public class HomeActivity extends AppCompatActivity {
                 Intent theIntent = RollAttributesActivity
                         .newIntent(HomeActivity.this);
                 startActivity(theIntent);
+            }
+        });
+
+        mOpenCharacterButton = findViewById(R.id.open_button);
+        mOpenCharacterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this, "Open Character Button clicked.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mDeleteCharacterButton = findViewById(R.id.delete_button);
+        mDeleteCharacterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this, "Delete Character Button clicked.",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
