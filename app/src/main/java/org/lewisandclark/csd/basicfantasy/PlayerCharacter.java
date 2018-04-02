@@ -2,6 +2,20 @@ package org.lewisandclark.csd.basicfantasy;
 
 import java.util.ArrayList;
 
+import static org.lewisandclark.csd.basicfantasy.Attribute.CHA;
+import static org.lewisandclark.csd.basicfantasy.Attribute.CON;
+import static org.lewisandclark.csd.basicfantasy.Attribute.DEX;
+import static org.lewisandclark.csd.basicfantasy.Attribute.INT;
+import static org.lewisandclark.csd.basicfantasy.Attribute.STR;
+import static org.lewisandclark.csd.basicfantasy.Attribute.WIS;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.ATTACK_BONUS_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.CLERIC_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.FIGHTER_MU_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.FIGHTER_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.MU_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.MU_THIEF_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.GameConstants.THIEF_SAVE_MATRIX;
+
 /**
  * Created by Thorin Schmidt on 2/22/2018.
  */
@@ -10,7 +24,8 @@ public class PlayerCharacter {
 
     private int ID;
 
-    //Standard non-crucial stuff
+
+
     private String mName;
     private Gender mSex;
     private int mAge;
@@ -22,6 +37,7 @@ public class PlayerCharacter {
     private int mStatRollCounter;
     private AttributeScore[] mStatArray = new AttributeScore[6]; //[STR,INT,WIS,DEX,CON,CHA]
 
+    private int mHitDie;
     private int mTotalHitPoints;
     private int mCurrentHitPoints;
     private int mArmorClass;
@@ -47,10 +63,10 @@ public class PlayerCharacter {
     private int mRodStaveSpellMod;
 
     private int[] mMoneyArray = new int[5]; //[PP,GP,EP,SP,CP]
-    private ArrayList<Treasure> mTreasureList = new ArrayList<Treasure>();
+    private ArrayList<Treasure> mTreasureList = new ArrayList<>();
     private ArrayList<Item> mEquipmentList = new ArrayList<>();
 
-    public PlayerCharacter(int id) {
+    PlayerCharacter(int id) {
 
         this.ID = id;
         this.mStatRollCounter = 0;
@@ -59,7 +75,7 @@ public class PlayerCharacter {
     /**
      * Generic Constructor for testing
      */
-    public PlayerCharacter(){
+    PlayerCharacter(){
         this.mName = "Fenton Falomar";
         this.mSex = Gender.MALE;
         this.mRace = Race.HUMAN;
@@ -67,16 +83,98 @@ public class PlayerCharacter {
         this.mAge = 20;
         this.mLevel = 1;
         this.mXP = 0;
+        this.mHitDie = 8;
+        this.mTotalHitPoints = 0;
+        this.mCurrentHitPoints = 0;
+
 
         this.mStatRollCounter = 1;
-        this.mStatArray[Attribute.STR.ordinal()] = new AttributeScore(15);
-        this.mStatArray[Attribute.INT.ordinal()] = new AttributeScore(10);
-        this.mStatArray[Attribute.WIS.ordinal()] = new AttributeScore(9);
-        this.mStatArray[Attribute.DEX.ordinal()] = new AttributeScore(12);
-        this.mStatArray[Attribute.CON.ordinal()] = new AttributeScore(12);
-        this.mStatArray[Attribute.CHA.ordinal()] = new AttributeScore(5);
+        this.mStatArray[STR.ordinal()] = new AttributeScore(15);
+        this.mStatArray[INT.ordinal()] = new AttributeScore(10);
+        this.mStatArray[WIS.ordinal()] = new AttributeScore(9);
+        this.mStatArray[DEX.ordinal()] = new AttributeScore(12);
+        this.mStatArray[CON.ordinal()] = new AttributeScore(12);
+        this.mStatArray[CHA.ordinal()] = new AttributeScore(5);
+        this.autoCalc();
+    }
 
+    private void autoCalc(){
+        int[] saveArray;
+        //total hit points
+        if(this.mTotalHitPoints == 0){
+            for(int i=0; i<this.mLevel; i++){
+                this.mTotalHitPoints += DieRoller.roll(this.mHitDie) +
+                    this.mStatArray[CON.ordinal()].getModifier();
+            }
         }
+        else{
+            this.mTotalHitPoints += DieRoller.roll(this.mHitDie) +
+                    this.mStatArray[CON.ordinal()].getModifier();
+        }
+        this.mCurrentHitPoints = this.mTotalHitPoints;
+
+        // Attack Bonus
+        mBaseAttackBonus = ATTACK_BONUS_MATRIX[mPlayerClass.ordinal()][mLevel];
+        mMeleeAttackBonus = mBaseAttackBonus + mStatArray[STR.ordinal()].getModifier();
+        mRangedAttackBonus = mBaseAttackBonus + mStatArray[DEX.ordinal()].getModifier();
+
+        //Saves
+        switch (this.mPlayerClass){
+            case CLERIC: saveArray = CLERIC_SAVE_MATRIX[mLevel];
+            break;
+            case FIGHTER: saveArray = FIGHTER_SAVE_MATRIX[mLevel];
+            break;
+            case MAGIC_USER: saveArray = MU_SAVE_MATRIX[mLevel];
+            break;
+            case THIEF: saveArray = THIEF_SAVE_MATRIX[mLevel];
+            break;
+            case FIGHTER_MU: saveArray = FIGHTER_MU_SAVE_MATRIX[mLevel];
+            break;
+            case MU_THIEF: saveArray = MU_THIEF_SAVE_MATRIX[mLevel];
+            break;
+            default: saveArray = new int[]{20, 20, 20, 20, 20};
+        }
+        mDeathRayPoisonSave = saveArray[0];
+        mWandSave = saveArray[1];
+        mParalysisStoneSave = saveArray[2];
+        mDragonBreathSave = saveArray[3];
+        mRodStaveSpellSave = saveArray[3];
+
+        //Save bonuses
+        switch (mRace) {
+            case DWARF:
+                mDeathRayPosionMod = 4;
+                mWandMod = 4;
+                mParalysisStoneMod = 4;
+                mDragonBreathMod = 3;
+                mRodStaveSpellMod = 4;
+                break;
+            case ELF:
+                mDeathRayPosionMod = 0;
+                mWandMod = 2;
+                mParalysisStoneMod = 0;
+                mDragonBreathMod = 0;
+                mRodStaveSpellMod = 2;
+                break;
+            case HALFLING:
+                mDeathRayPosionMod = 4;
+                mWandMod = 4;
+                mParalysisStoneMod = 4;
+                mDragonBreathMod = 3;
+                mRodStaveSpellMod = 4;
+                break;
+            default: //human
+                mDeathRayPosionMod = 0;
+                mWandMod = 0;
+                mParalysisStoneMod = 0;
+                mDragonBreathMod = 0;
+                mRodStaveSpellMod = 0;
+                break;
+        }
+
+        
+
+    }
 
     public int getID() {
         return ID;
@@ -326,5 +424,21 @@ public class PlayerCharacter {
 
     public void setRodStaveSpellMod(int rodStaveSpellMod) {
         mRodStaveSpellMod = rodStaveSpellMod;
+    }
+
+    public int getHitDie() {
+        return mHitDie;
+    }
+
+    public void setHitDie(int hitDie) {
+        mHitDie = hitDie;
+    }
+
+    public ArrayList<Item> getEquipmentList() {
+        return mEquipmentList;
+    }
+
+    public void setEquipmentList(ArrayList<Item> equipmentList) {
+        mEquipmentList = equipmentList;
     }
 }

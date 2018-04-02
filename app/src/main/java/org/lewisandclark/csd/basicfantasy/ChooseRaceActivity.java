@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
+
 public class ChooseRaceActivity extends AppCompatActivity {
 
     private AttributeScore[] mStatArray;
@@ -24,9 +27,10 @@ public class ChooseRaceActivity extends AppCompatActivity {
     private Button mBackButton;
 
     public static Intent newIntent(Context packageContext){
-        Intent theIntent = new Intent(packageContext, ChooseRaceActivity.class);
+        //Intent theIntent = new Intent(packageContext, ChooseRaceActivity.class);
         //Intent Extras go here
-        return theIntent;
+        //return theIntent;
+        return new Intent(packageContext, ChooseRaceActivity.class);
     }
 
     @Override
@@ -34,7 +38,7 @@ public class ChooseRaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_race);
 
-        mStatArray = HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatArray();
+        mStatArray = sCharacters.get(sCurrentCharacterIndex).getStatArray();
 
         mRadioRaceGroup = findViewById(R.id.radio_race_group);
 
@@ -77,7 +81,7 @@ public class ChooseRaceActivity extends AppCompatActivity {
                                                     break;
                 }
 
-                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setRace(mNewRace);
+                sCharacters.get(sCurrentCharacterIndex).setRace(mNewRace);
 
                 Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this);
                 startActivity(intent);

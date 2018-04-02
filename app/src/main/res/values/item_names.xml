@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base Item Names -->
+    <string name="thing">Thing</string>
     <string name="pack">Backpack</string>
     <string name="pouch">Belt Pouch</string>
     <string name="bit_n_bridle">Bit and Bridle</string>
@@ -12,5 +13,8 @@
     <string name="grapling_hook">Grappling Hook</string>
     <string name="holy_symbol">Holy Symbol</string>
     <string name="holy_water">Holy Water, per vial</string>
+
+    <!-- Armor Names -->
+    <string name="none">None</string>
     
 </resources>

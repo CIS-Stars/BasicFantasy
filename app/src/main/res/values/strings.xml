@@ -33,5 +33,6 @@
     <string name="save_info">Save Info</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
+    <string name="display_mods">(%1$d)</string>
     <string name="invalid_atributes">Invalid Attributes Detected</string>
 </resources>
