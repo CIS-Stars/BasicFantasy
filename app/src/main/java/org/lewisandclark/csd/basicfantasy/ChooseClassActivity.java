@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
+
 public class ChooseClassActivity extends AppCompatActivity {
     private RadioGroup mRadioClassGroup;
 
@@ -26,11 +29,13 @@ public class ChooseClassActivity extends AppCompatActivity {
     private AttributeScore[] mStatArray;
     private Race mRace;
     private CharacterClass mNewClass;
+    private int mNewHitDie;
 
     public static Intent newIntent(Context packageContext){
-        Intent theIntent = new Intent(packageContext, ChooseClassActivity.class);
+        //Intent theIntent = new Intent(packageContext, ChooseClassActivity.class);
         //Intent Extras go here
-        return theIntent;
+        //return theIntent;
+        return new Intent(packageContext, ChooseClassActivity.class);
     }
 
     @Override
@@ -38,8 +43,8 @@ public class ChooseClassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_class);
 
-        mStatArray = HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatArray();
-        mRace = HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getRace();
+        mStatArray = sCharacters.get(sCurrentCharacterIndex).getStatArray();
+        mRace = sCharacters.get(sCurrentCharacterIndex).getRace();
 
         mRadioClassGroup = findViewById(R.id.radio_class_group);
 
@@ -75,21 +80,34 @@ public class ChooseClassActivity extends AppCompatActivity {
                 switch(selectedId){
 
                     case R.id.radio_cleric          :   mNewClass = CharacterClass.CLERIC;
-                        break;
+                                                        mNewHitDie = 6;
+                                                        break;
                     case R.id.radio_fighter         :   mNewClass = CharacterClass.FIGHTER;
+                                                        mNewHitDie = 8;
                         break;
                     case R.id.radio_magic_user      :   mNewClass = CharacterClass.MAGIC_USER;
+                        mNewHitDie = 4;
                         break;
                     case R.id.radio_thief           :   mNewClass = CharacterClass.THIEF;
+                        mNewHitDie = 4;
                         break;
                     case R.id.radio_fighter_magic_user : mNewClass = CharacterClass.FIGHTER_MU;
+                        mNewHitDie = 6;
                         break;
                     case R.id.radio_magic_user_thief : mNewClass = CharacterClass.MU_THIEF;
+                        mNewHitDie = 4;
                         break;
 
                 }
+                // Elf and Halfling can only have max hitdie of 6
+                if ((sCharacters.get(sCurrentCharacterIndex).getRace()==Race.ELF ||
+                        sCharacters.get(sCurrentCharacterIndex).getRace()==Race.HALFLING)
+                        && mNewHitDie > 6){
+                    mNewHitDie = 6;
+                }
 
-                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setPlayerClass(mNewClass);
+                sCharacters.get(sCurrentCharacterIndex).setPlayerClass(mNewClass);
+                sCharacters.get(sCurrentCharacterIndex).setHitDie(mNewHitDie);
 
                 Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
                 startActivity(intent);

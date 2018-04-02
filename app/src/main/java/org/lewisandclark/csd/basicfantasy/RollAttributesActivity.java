@@ -1,5 +1,6 @@
 package org.lewisandclark.csd.basicfantasy;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
+
+import static org.lewisandclark.csd.basicfantasy.Attribute.CHA;
+import static org.lewisandclark.csd.basicfantasy.Attribute.CON;
+import static org.lewisandclark.csd.basicfantasy.Attribute.DEX;
+import static org.lewisandclark.csd.basicfantasy.Attribute.INT;
+import static org.lewisandclark.csd.basicfantasy.Attribute.STR;
+import static org.lewisandclark.csd.basicfantasy.Attribute.WIS;
 
 public class RollAttributesActivity extends AppCompatActivity {
 
@@ -46,14 +54,16 @@ public class RollAttributesActivity extends AppCompatActivity {
                                             new AttributeScore(0),
                                             new AttributeScore(0)};
 
-    private HashMap<Attribute, AttributeScore> tempMap = new HashMap<Attribute, AttributeScore>();
+    private HashMap<Attribute, AttributeScore> tempMap = new HashMap<>();
 
     public static Intent newIntent(Context packageContext){
-        Intent theIntent = new Intent(packageContext, RollAttributesActivity.class);
+        //Intent theIntent = new Intent(packageContext, RollAttributesActivity.class);
         //Intent Extras go here
-        return theIntent;
+        //return theIntent;
+        return new Intent(packageContext, RollAttributesActivity.class);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +73,7 @@ public class RollAttributesActivity extends AppCompatActivity {
         mRollCounterTextView.setText(Integer.toString(HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
 
         mStrEditText = findViewById(R.id.str_score);
-        mStrEditText.setText(Integer.toString(mStatArray[Attribute.STR.ordinal()].getScore()));
+        mStrEditText.setText(Integer.toString(mStatArray[STR.ordinal()].getScore()));
         mStrEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -74,8 +84,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.STR.ordinal()].setScore(Integer.parseInt(mStrEditText.getText().toString()));
-                    mStrModText.setText("(" + Integer.toString(mStatArray[Attribute.STR.ordinal()].getModifier()) + ")");
+                    mStatArray[STR.ordinal()].setScore(Integer.parseInt(mStrEditText.getText().toString()));
+                    mStrModText.setText("(" + Integer.toString(mStatArray[STR.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mStrModText.setText("(-)");
@@ -95,8 +105,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.INT.ordinal()].setScore(Integer.parseInt(mIntEditText.getText().toString()));
-                    mIntModText.setText("(" + Integer.toString(mStatArray[Attribute.INT.ordinal()].getModifier()) + ")");
+                    mStatArray[INT.ordinal()].setScore(Integer.parseInt(mIntEditText.getText().toString()));
+                    mIntModText.setText("(" + Integer.toString(mStatArray[INT.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mIntModText.setText("(-)");
@@ -116,8 +126,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.WIS.ordinal()].setScore(Integer.parseInt(mWisEditText.getText().toString()));
-                    mWisModText.setText("(" + Integer.toString(mStatArray[Attribute.WIS.ordinal()].getModifier()) + ")");
+                    mStatArray[WIS.ordinal()].setScore(Integer.parseInt(mWisEditText.getText().toString()));
+                    mWisModText.setText("(" + Integer.toString(mStatArray[WIS.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mWisModText.setText("(-)");
@@ -137,8 +147,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.DEX.ordinal()].setScore(Integer.parseInt(mDexEditText.getText().toString()));
-                    mDexModText.setText("(" + Integer.toString(mStatArray[Attribute.DEX.ordinal()].getModifier()) + ")");
+                    mStatArray[DEX.ordinal()].setScore(Integer.parseInt(mDexEditText.getText().toString()));
+                    mDexModText.setText("(" + Integer.toString(mStatArray[DEX.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mDexModText.setText("(-)");
@@ -158,8 +168,8 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.CON.ordinal()].setScore(Integer.parseInt(mConEditText.getText().toString()));
-                    mConModText.setText("(" + Integer.toString(mStatArray[Attribute.CON.ordinal()].getModifier()) + ")");
+                    mStatArray[CON.ordinal()].setScore(Integer.parseInt(mConEditText.getText().toString()));
+                    mConModText.setText("(" + Integer.toString(mStatArray[CON.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mConModText.setText("(-)");
@@ -179,15 +189,14 @@ public class RollAttributesActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    mStatArray[Attribute.CHA.ordinal()].setScore(Integer.parseInt(mChaEditText.getText().toString()));
-                    mChaModText.setText("(" + Integer.toString(mStatArray[Attribute.CHA.ordinal()].getModifier()) + ")");
+                    mStatArray[CHA.ordinal()].setScore(Integer.parseInt(mChaEditText.getText().toString()));
+                    mChaModText.setText("(" + Integer.toString(mStatArray[CHA.ordinal()].getModifier()) + ")");
                 }
                 catch (Exception e){
                     mChaModText.setText("(-)");
                 }
             }
         });
-
 
         mStrModText = findViewById(R.id.str_mod);
         mIntModText = findViewById(R.id.int_mod);
@@ -197,7 +206,6 @@ public class RollAttributesActivity extends AppCompatActivity {
         mChaModText = findViewById(R.id.cha_mod);
 
         //updateMods();
-
         mRollStats = findViewById(R.id.roll_stats_button);
         mRollStats.setOnClickListener(new View.OnClickListener() {
 
@@ -217,18 +225,18 @@ public class RollAttributesActivity extends AppCompatActivity {
 
                 //generate the random stats
                 Log.d(TAG, "RollStats clicked.");
-                for (int i=0; i<mStatArray.length; i++){
+                //noinspection ForLoopReplaceableByForEach
+                for (int i = 0; i < mStatArray.length; i++) {
                     mStatArray[i].setScore(DieRoller.statRoll());
                 }
 
-                mStrEditText.setText(Integer.toString(mStatArray[Attribute.STR.ordinal()].getScore()));
-                mIntEditText.setText(Integer.toString(mStatArray[Attribute.INT.ordinal()].getScore()));
-                mWisEditText.setText(Integer.toString(mStatArray[Attribute.WIS.ordinal()].getScore()));
-                mDexEditText.setText(Integer.toString(mStatArray[Attribute.DEX.ordinal()].getScore()));
-                mConEditText.setText(Integer.toString(mStatArray[Attribute.CON.ordinal()].getScore()));
-                mChaEditText.setText(Integer.toString(mStatArray[Attribute.CHA.ordinal()].getScore()));
+                mStrEditText.setText(Integer.toString(mStatArray[STR.ordinal()].getScore()));
+                mIntEditText.setText(Integer.toString(mStatArray[INT.ordinal()].getScore()));
+                mWisEditText.setText(Integer.toString(mStatArray[WIS.ordinal()].getScore()));
+                mDexEditText.setText(Integer.toString(mStatArray[DEX.ordinal()].getScore()));
+                mConEditText.setText(Integer.toString(mStatArray[CON.ordinal()].getScore()));
+                mChaEditText.setText(Integer.toString(mStatArray[CHA.ordinal()].getScore()));
                 updateMods();
-
             }
         });
 
@@ -251,7 +259,6 @@ public class RollAttributesActivity extends AppCompatActivity {
             }
         });
 
-
         mBackButton = findViewById(R.id.back_button);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,7 +266,6 @@ public class RollAttributesActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
     }
 
@@ -290,18 +296,11 @@ public class RollAttributesActivity extends AppCompatActivity {
     }
 
     public void updateMods(){
-
-
-        mStrModText.setText("("+ Integer.toString(mStatArray[Attribute.STR.ordinal()].getModifier())+")");
-
-        mIntModText.setText("("+ Integer.toString(mStatArray[Attribute.INT.ordinal()].getModifier())+")");
-
-        mWisModText.setText("("+ Integer.toString(mStatArray[Attribute.WIS.ordinal()].getModifier())+")");
-
-        mDexModText.setText("("+ Integer.toString(mStatArray[Attribute.DEX.ordinal()].getModifier())+")");
-
-        mConModText.setText("("+ Integer.toString(mStatArray[Attribute.CON.ordinal()].getModifier())+")");
-
-        mChaModText.setText("("+ Integer.toString(mStatArray[Attribute.CHA.ordinal()].getModifier())+")");
+        mStrModText.setText(getString(R.string.display_mods, mStatArray[STR.ordinal()].getModifier()));
+        mIntModText.setText(getString(R.string.display_mods, mStatArray[INT.ordinal()].getModifier()));
+        mWisModText.setText(getString(R.string.display_mods, mStatArray[WIS.ordinal()].getModifier()));
+        mDexModText.setText(getString(R.string.display_mods, mStatArray[DEX.ordinal()].getModifier()));
+        mConModText.setText(getString(R.string.display_mods, mStatArray[CON.ordinal()].getModifier()));
+        mChaModText.setText(getString(R.string.display_mods, mStatArray[CHA.ordinal()].getModifier()));
     }
 }
