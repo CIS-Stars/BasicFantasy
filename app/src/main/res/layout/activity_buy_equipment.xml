@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuyEquipmentActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/equip_activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:text="@string/choose_equip_title"
+        android:textSize="30sp"/>
+    
+    <TextView
+        android:id="@+id/main_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_equip_instructions"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@+id/equip_activity_title"/>
+    
+    <LinearLayout
+        android:id="@+id/gold_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/main_instructions">
+
+        <Button
+            android:id="@+id/button_roll_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/roll_gold"/>
+
+        <EditText
+            android:id="@+id/edit_starting_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/six_digit_invisible_hint"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColorHint="#00FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gold_short"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/gold_layout"
+        tools:layout_marginTop="@dimen/activity_horizontal_margin">
+
+        <Button
+            android:id="@+id/button_armor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/armor"
+            />
+
+
+        <Button
+            android:id="@+id/button_weapons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/weapons"
+            />
+
+        <Button
+            android:id="@+id/button_equipment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/equipment"
+            />
+
+        <Button
+            android:id="@+id/button_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:ems="10"
+            android:text="@string/checkout"
+            tools:layout_marginTop="@dimen/activity_horizontal_margin"/>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -35,4 +35,12 @@
     <string name="gender_female">Female</string>
     <string name="display_mods">(%1$d)</string>
     <string name="invalid_atributes">Invalid Attributes Detected</string>
+    <string name="choose_equip_title">Buy Your Equipment</string>
+    <string name="main_equip_instructions">Enter the amount of gold given by your GM, or roll it yourself.</string>
+    <string name="roll_gold">3d6 x 10</string>
+    <string name="armor">Armor</string>
+    <string name="weapons">Weapons</string>
+    <string name="equipment">Equipment</string>
+    <string name="checkout">Check Out</string>
+    <string name="six_digit_invisible_hint">000000</string>
 </resources>
