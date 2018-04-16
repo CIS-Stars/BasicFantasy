@@ -15,6 +15,8 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<>();
+    public static ArrayList<Armor> sArmors = new ArrayList<>();
+    public static ArrayList<Item> sItems = new ArrayList<>();
     public static int sCurrentCharacterIndex;
 
     private Spinner mCharacterListSpinner;
@@ -27,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        sArmors.addAll(buildArmorList());
 
         sCurrentCharacterIndex = 0;
         sCharacters.add(new PlayerCharacter());
@@ -70,5 +73,26 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private ArrayList<Armor> buildArmorList() {
+        ArrayList<Armor> armorList = new ArrayList<>();
+
+        armorList.add(new Armor(R.string.none,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.padded,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.hide,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.leather,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.studded,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.ring_mail,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.brigandine,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.chain_mail,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.scale,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.splint,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.banded,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.plate,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.field_plate,"",0,0,1,0,0,0,0));
+        armorList.add(new Armor(R.string.full_plate,"",0,0,1,0,0,0,0));
+
+        return armorList;
     }
 }

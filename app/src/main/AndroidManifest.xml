@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".EnterPersonalInfoActivity">
         </activity>
+        <activity android:name=".BuyEquipmentActivity">
+        </activity>
     </application>
 
 </manifest>
