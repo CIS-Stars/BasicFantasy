@@ -28,6 +28,8 @@ public class PlayerCharacter {
 
     private String mName;
     private Gender mSex;
+    private int mHeight;
+    private int mWeight;
     private int mAge;
     private int mLevel;
     private int mXP;
@@ -202,6 +204,22 @@ public class PlayerCharacter {
 
     public int getAge() {
         return mAge;
+    }
+
+    public int getHeight() {
+        return mHeight;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
+    }
+
+    public int getWeight() {
+        return mWeight;
+    }
+
+    public void setWeight(int weight) {
+        mWeight = weight;
     }
 
     public void setAge(int age) {

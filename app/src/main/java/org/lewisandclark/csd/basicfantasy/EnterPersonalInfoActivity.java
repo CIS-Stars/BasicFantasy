@@ -4,9 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class EnterPersonalInfoActivity extends AppCompatActivity {
 
@@ -108,6 +113,39 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        mSaveButton = findViewById(R.id.save_info_button);
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int count =0;
+                try {
+
+                    //count 0
+                    sCharacters.get(sCurrentCharacterIndex).setName(mEditName.getText().toString());
+                    count++; //count 1
+                    sCharacters.get(sCurrentCharacterIndex).setAge(Integer.parseInt(mEditAge.getText().toString()));
+                    count++;
+                    sCharacters.get(sCurrentCharacterIndex).setHeight(Integer.parseInt(mEditHeight.getText().toString()));
+                    count++;
+                    sCharacters.get(sCurrentCharacterIndex).setWeight(Integer.parseInt(mEditWeight.getText().toString()));
+                    count++;
+                    sCharacters.get(sCurrentCharacterIndex).setName(mEditEyeColor.getText().toString());
+                    count++;
+                    sCharacters.get(sCurrentCharacterIndex).setName(mEditHairColor.getText().toString());
+                    count++;
+
+                    Intent intent = BuyEquipmentActivity.newIntent(EnterPersonalInfoActivity.this);
+                    count++;
+                    startActivity(intent);
+                }
+                catch (Exception e){
+                    String msg = "Something went wrong with the save: " + count;
+                    Toast.makeText(EnterPersonalInfoActivity.this, msg ,Toast.LENGTH_SHORT);
+                    Log.d("SAVE", msg);
+                }
             }
         });
     }
