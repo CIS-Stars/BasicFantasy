@@ -37,12 +37,7 @@ public class BuyArmorActivity extends AppCompatActivity {
             v.setText(item.getNameID());
             v.setChecked(false);
             v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onCheckTextClick(v);
-                }
-            });
+            v.setOnClickListener(view -> onCheckTextClick(v));
             mCheckedTextViews.add(v);
             mArmorLayout.addView(v);
         }

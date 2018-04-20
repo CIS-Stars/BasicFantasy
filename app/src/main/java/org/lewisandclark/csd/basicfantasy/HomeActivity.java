@@ -3,7 +3,6 @@ package org.lewisandclark.csd.basicfantasy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -46,42 +45,29 @@ public class HomeActivity extends AppCompatActivity {
         mCharacterListSpinner.setAdapter(adapter);
 
         mCreateCharacterButton = findViewById(R.id.create_button);
-        mCreateCharacterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sCurrentCharacterIndex = sCharacters.size();
-                sCharacters.add(new PlayerCharacter(sCharacters.size()));
-                Intent theIntent = RollAttributesActivity
-                        .newIntent(HomeActivity.this);
-                startActivity(theIntent);
-            }
+        mCreateCharacterButton.setOnClickListener(view -> {
+            sCurrentCharacterIndex = sCharacters.size();
+            sCharacters.add(new PlayerCharacter(sCharacters.size()));
+            Intent theIntent = RollAttributesActivity
+                    .newIntent(HomeActivity.this);
+            startActivity(theIntent);
         });
 
         mOpenCharacterButton = findViewById(R.id.open_button);
-        mOpenCharacterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent theIntent = DetailedCharacterSheetActivity.newIntent(HomeActivity.this);
-                startActivity(theIntent);
-            }
+        mOpenCharacterButton.setOnClickListener(view -> {
+            Intent theIntent = DetailedCharacterSheetActivity.newIntent(HomeActivity.this);
+            startActivity(theIntent);
         });
 
         mDeleteCharacterButton = findViewById(R.id.delete_button);
-        mDeleteCharacterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this, "Delete Character Button clicked.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        mDeleteCharacterButton.setOnClickListener(view -> Toast.makeText(HomeActivity.this,
+                "Delete Character Button clicked.",
+                Toast.LENGTH_SHORT).show());
 
         mBuyEquipmentButton = findViewById(R.id.buy_equipment_button);
-        mBuyEquipmentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent theIntent = BuyEquipmentActivity.newIntent(HomeActivity.this);
-                startActivity(theIntent);
-            }
+        mBuyEquipmentButton.setOnClickListener(view -> {
+            Intent theIntent = BuyEquipmentActivity.newIntent(HomeActivity.this);
+            startActivity(theIntent);
         });
     }
 
