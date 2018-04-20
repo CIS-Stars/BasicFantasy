@@ -27,9 +27,13 @@ public class PlayerCharacter {
 
 
     private String mName;
+<<<<<<< HEAD
+    private String mSex;
+=======
     private Gender mSex;
     private int mHeight;
     private int mWeight;
+>>>>>>> upstream/master
     private int mAge;
     private int mLevel;
     private int mXP;
@@ -178,6 +182,35 @@ public class PlayerCharacter {
 
     }
 
+    public PlayerCharacter(){
+        mName = "Jared";
+        mSex = "male";
+        mAge = 12;
+        mLevel = 1;
+        mXP = 0;
+
+        mStatArray[Attribute.STR.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.INT.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.WIS.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.DEX.ordinal()] = new AttributeScore(12);
+        mStatArray[Attribute.CON.ordinal()] = new AttributeScore(3);
+        mStatArray[Attribute.CHA.ordinal()] = new AttributeScore(12);
+
+        mTotalHitPoints = 10;
+        mCurrentHitPoints = 8;
+
+        mRace = Race.HUMAN;
+        mPlayerClass = CharacterClass.FIGHTER;
+
+        mArmorClass = 14;
+
+        mBaseAttackBonus = 1;
+        mCurrentAttackBonus = 2;
+
+        mBaseMovement =30;
+        mCurrentMovement = 35;
+    }
+
     public int getID() {
         return ID;
     }
@@ -206,6 +239,8 @@ public class PlayerCharacter {
         return mAge;
     }
 
+<<<<<<< HEAD
+=======
     public int getHeight() {
         return mHeight;
     }
@@ -222,6 +257,7 @@ public class PlayerCharacter {
         mWeight = weight;
     }
 
+>>>>>>> upstream/master
     public void setAge(int age) {
         mAge = age;
     }
