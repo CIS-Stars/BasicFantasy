@@ -35,6 +35,8 @@
         </activity>
         <activity android:name=".BuyEquipmentActivity">
         </activity>
+        <activity android:name=".BuyArmorActivity">
+        </activity>
     </application>
 
 </manifest>
