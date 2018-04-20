@@ -1,0 +1,14 @@
+No Armor
+Padded
+Hide
+Leather
+Studded Leather
+Ring Mail
+Brigandine
+Chain Mail
+Scale Mail
+Splint Mail
+Banded Mail
+Plate Mail
+Field Plate Mail
+Full Plate Mail

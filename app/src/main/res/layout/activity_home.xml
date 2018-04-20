@@ -15,7 +15,11 @@
             android:text=" Existing Character(s):" />
 
         <Spinner
+<<<<<<< HEAD
             android:id="@+id/spinner_choose_character"
+=======
+            android:id="@+id/character_list_spinner"
+>>>>>>> upstream/master
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -7,24 +7,33 @@ package org.lewisandclark.csd.basicfantasy;
  */
 
 public class Item {
-    private String mName;           //the common name of the item - "sword"
+    private int mNameID;           //the common name of the item - "sword"
     private String mFormalName;     //a more formal name for a specific item - "Excalibur"
-    private double mWeight;         //factors into how much a character can carry
+    private double mWeight;         //the weight of a single item
     private double mCostInGP;       //cost of a single item
     private int mQuantity;          //how much of the item a character has
     private boolean mEquipped;      //is the character wearing/carrying the item
 
+    public Item(){
+        mNameID = R.string.thing;
+        mFormalName = "";
+        mWeight = 0;
+        mCostInGP = 0;
+        mQuantity = 1;
+        mEquipped = false;
+    }
+
     /**
-     * Default Constructor
+     * Constructor
      *
-     * @param name              the common name of the item - "sword"
+     * @param nameID              the common name of the item - "sword"
      * @param formalName        a more formal name for a specific item - "Excalibur"
      * @param weight            factors into how much a character can carry
      * @param costInGP          cost of a single item
      * @param quantity          how much of the item a character has
      */
-    public Item(String name, String formalName, double weight, double costInGP, int quantity) {
-        mName = name;
+    public Item(int nameID, String formalName, double weight, double costInGP, int quantity) {
+        mNameID = nameID;
         mFormalName = formalName;
         mWeight = weight;
         mCostInGP = costInGP;
@@ -32,12 +41,12 @@ public class Item {
         mEquipped = false;
     }
 
-    public String getName() {
-        return mName;
+    public int getNameID() {
+        return mNameID;
     }
 
-    public void setName(String name) {
-        mName = name;
+    public void setName(int nameID) {
+        mNameID = nameID;
     }
 
     public String getFormalName() {
