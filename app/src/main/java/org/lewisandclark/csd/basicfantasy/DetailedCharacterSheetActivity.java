@@ -7,9 +7,11 @@ import android.os.Bundle;
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 
+@SuppressWarnings("UnnecessaryLocalVariable")
 public class DetailedCharacterSheetActivity extends AppCompatActivity {
 
     PlayerCharacter mPlayerCharacter;
+
     public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, DetailedCharacterSheetActivity.class);
         //Intent Extras go here

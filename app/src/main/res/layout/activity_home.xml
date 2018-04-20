@@ -12,7 +12,7 @@
             android:id="@+id/existingCharacter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Existing Character(s):" />
+            android:text="@string/existing_characters" />
 
         <Spinner
             android:id="@+id/character_list_spinner"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Open Character" />
+            android:text="@string/open_character" />
 
         <Button
             android:id="@+id/create_button"
@@ -48,5 +48,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete_character"/>
+
+        <Button
+            android:id="@+id/buy_equipment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_equipment"/>
     </LinearLayout>
 </GridLayout>

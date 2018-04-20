@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
@@ -34,21 +35,31 @@ public class BuyArmorActivity extends AppCompatActivity {
         for (Armor item: HomeActivity.sArmors) {
             CheckedTextView v = new CheckedTextView(this);
             v.setText(item.getNameID());
-            v.setTextSize(48, );
+            v.setChecked(false);
+            v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onCheckTextClick(v);
+                }
+            });
             mCheckedTextViews.add(v);
             mArmorLayout.addView(v);
         }
+
     }
 
-    public void onCheckTextClick(View view){
+    public boolean onCheckTextClick(View view){
         CheckedTextView v = (CheckedTextView) view;
         if(v.isChecked()){
             v.setChecked(false);
-            v.setCheckMarkDrawable(R.drawable.checked);
+            v.setBackgroundColor(getResources().getColor(R.color.white));
         }
         else{
             v.setChecked(true);
-            v.setCheckMarkDrawable(null);
+            v.setBackgroundColor(getResources().getColor(R.color.lime));
+
         }
+        return true;
     }
 }

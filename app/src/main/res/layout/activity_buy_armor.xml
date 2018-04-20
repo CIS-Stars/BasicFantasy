@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,6 +23,11 @@
         android:gravity="center_horizontal"
         android:text="@string/buy_armor_instructions"/>
 
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/free_purchase"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,26 +36,9 @@
             android:id="@+id/armor_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
             android:orientation="vertical">
-
-            <CheckedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onCheckTextClick"
-                android:text="One"
-                android:textSize="48dp"/>
-
-            <CheckedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onCheckTextClick"
-                android:text="Two"/>
-
-            <CheckedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onCheckTextClick"
-                android:text="Three"/>
 
         </LinearLayout>
     </ScrollView>

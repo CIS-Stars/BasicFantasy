@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button mCreateCharacterButton;
     private Button mOpenCharacterButton;
     private Button mDeleteCharacterButton;
+    private Button mBuyEquipmentButton;
 
 
     @Override
@@ -37,7 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         for(PlayerCharacter character : sCharacters ){
             characterList.add(character.getName());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, characterList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCharacterListSpinner = findViewById(R.id.character_list_spinner);
@@ -55,22 +57,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        mCharacterListSpinner = findViewById(R.id.character_list_spinner);
-        List<String> list = new ArrayList<String>();
-        for(PlayerCharacter item: sCharacters){
-            list.add(item.getName());
-        }
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mCharacterListSpinner.setAdapter(dataAdapter);
-
         mOpenCharacterButton = findViewById(R.id.open_button);
         mOpenCharacterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(HomeActivity.this, "Open Character Button clicked.",
-                    //    Toast.LENGTH_SHORT).show();
                 Intent theIntent = DetailedCharacterSheetActivity.newIntent(HomeActivity.this);
                 startActivity(theIntent);
             }
@@ -82,6 +72,15 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(HomeActivity.this, "Delete Character Button clicked.",
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mBuyEquipmentButton = findViewById(R.id.buy_equipment_button);
+        mBuyEquipmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent theIntent = BuyEquipmentActivity.newIntent(HomeActivity.this);
+                startActivity(theIntent);
             }
         });
     }
