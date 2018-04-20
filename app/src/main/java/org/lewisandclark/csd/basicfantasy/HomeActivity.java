@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mChooseCharacter.setAdapter(dataAdapter);
 
-        
+
 
 
     }
