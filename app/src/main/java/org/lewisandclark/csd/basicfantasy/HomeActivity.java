@@ -60,8 +60,10 @@ public class HomeActivity extends AppCompatActivity {
         mOpenCharacterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HomeActivity.this, "Open Character Button clicked.",
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivity.this, "Open Character Button clicked.",
+                    //    Toast.LENGTH_SHORT).show();
+                Intent theIntent = DetailedCharacterSheetActivity.newIntent(HomeActivity.this);
+                startActivity(theIntent);
             }
         });
 
