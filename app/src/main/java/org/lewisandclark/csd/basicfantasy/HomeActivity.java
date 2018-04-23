@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.lewisandclark.csd.basicfantasy.model.Armor;
+import org.lewisandclark.csd.basicfantasy.model.Item;
+import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Armor> buildArmorList() {
         ArrayList<Armor> armorList = new ArrayList<>();
 
-        armorList.add(new Armor(R.string.none,"",0,0,1,11,11,0,0));
         armorList.add(new Armor(R.string.padded,"",10,15,1,12,12,0,0));
         armorList.add(new Armor(R.string.hide,"",30,10,1,13,13,0,0));
         armorList.add(new Armor(R.string.leather,"",15,20,1,13,13,0,0));

@@ -1,20 +1,22 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
+
+import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
 import java.util.ArrayList;
 
-import static org.lewisandclark.csd.basicfantasy.Attribute.CHA;
-import static org.lewisandclark.csd.basicfantasy.Attribute.CON;
-import static org.lewisandclark.csd.basicfantasy.Attribute.DEX;
-import static org.lewisandclark.csd.basicfantasy.Attribute.INT;
-import static org.lewisandclark.csd.basicfantasy.Attribute.STR;
-import static org.lewisandclark.csd.basicfantasy.Attribute.WIS;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.ATTACK_BONUS_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.CLERIC_SAVE_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.FIGHTER_MU_SAVE_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.FIGHTER_SAVE_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.MU_SAVE_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.MU_THIEF_SAVE_MATRIX;
-import static org.lewisandclark.csd.basicfantasy.GameConstants.THIEF_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.ATTACK_BONUS_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.CLERIC_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.FIGHTER_MU_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.FIGHTER_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.MU_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.MU_THIEF_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.GameConstants.THIEF_SAVE_MATRIX;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CHA;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CON;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.DEX;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.INT;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.STR;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 
 /**
  * Created by Thorin Schmidt on 2/22/2018.
@@ -40,6 +42,8 @@ public class PlayerCharacter {
     private int mTotalHitPoints;
     private int mCurrentHitPoints;
     private int mArmorClass;
+    private Armor mEquippedArmor;
+    private Shield mEquippedShield;
 
     private int mBaseAttackBonus;
     private int mMeleeAttackBonus;
@@ -65,7 +69,7 @@ public class PlayerCharacter {
     private ArrayList<Treasure> mTreasureList = new ArrayList<>();
     private ArrayList<Item> mEquipmentList = new ArrayList<>();
 
-    PlayerCharacter(int id) {
+    public PlayerCharacter(int id) {
 
         this.ID = id;
         this.mStatRollCounter = 0;
@@ -85,7 +89,6 @@ public class PlayerCharacter {
         this.mHitDie = 8;
         this.mTotalHitPoints = 0;
         this.mCurrentHitPoints = 0;
-
 
         this.mStatRollCounter = 1;
         this.mStatArray[STR.ordinal()] = new AttributeScore(15);
@@ -116,6 +119,12 @@ public class PlayerCharacter {
         mBaseAttackBonus = ATTACK_BONUS_MATRIX[mPlayerClass.ordinal()][mLevel];
         mMeleeAttackBonus = mBaseAttackBonus + mStatArray[STR.ordinal()].getModifier();
         mRangedAttackBonus = mBaseAttackBonus + mStatArray[DEX.ordinal()].getModifier();
+
+        //Armor Class and Armor
+        this.mEquipmentList.add(new Armor());  //adds entry for "No Armor"
+        this.mEquipmentList.add(new Shield()); // adds entry for "No Shield"
+        this.mEquippedArmor = (Armor) this.mEquipmentList.get(0);
+        this.mEquippedShield = (Shield) this.mEquipmentList.get(1);
 
         //Saves
         switch (this.mPlayerClass){

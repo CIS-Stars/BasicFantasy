@@ -1,4 +1,4 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
 
 /**
  * Created by Thorin Schmidt on 2/22/2018.
@@ -7,14 +7,14 @@ package org.lewisandclark.csd.basicfantasy;
 public class AttributeScore {
 
     //Instance Variables
-    int mScore;
+    private int mScore;
 
     //Private Methods
 
     /**
      * returns true if mScore is between lower and upper bound (inculsive)
-     * @param lower
-     * @param upper
+     * @param lower - the lower bound
+     * @param upper - the upper bound
      * @return true or false
      */
     private boolean isBetween(int lower, int upper){

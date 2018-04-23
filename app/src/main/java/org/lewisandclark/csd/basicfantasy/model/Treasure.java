@@ -1,10 +1,10 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
 
 /**
  * Created by Thorin Schmidt on 3/14/2018.
  */
 
-public class Treasure {
+class Treasure {
 
     private String name;
     private String description;

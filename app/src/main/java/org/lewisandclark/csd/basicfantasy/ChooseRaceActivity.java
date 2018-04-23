@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import org.lewisandclark.csd.basicfantasy.model.Attribute;
+import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
+import org.lewisandclark.csd.basicfantasy.model.Race;
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
@@ -64,41 +67,33 @@ public class ChooseRaceActivity extends AppCompatActivity {
 
 
         mAcceptButton = findViewById(R.id.accept_race_button);
-        mAcceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int selectedId = mRadioRaceGroup.getCheckedRadioButtonId();
+        mAcceptButton.setOnClickListener(view -> {
+            int selectedId = mRadioRaceGroup.getCheckedRadioButtonId();
 
-                switch(selectedId){
+            switch(selectedId){
 
-                    case R.id.radio_elf         :   mNewRace = Race.ELF;
-                                                    break;
-                    case R.id.radio_dwarf       :   mNewRace = Race.DWARF;
-                                                    break;
-                    case R.id.radio_halfling    :   mNewRace = Race.HALFLING;
-                                                    break;
-                    case R.id.radio_human       :   mNewRace = Race.HUMAN;
-                                                    break;
-                }
-
-                sCharacters.get(sCurrentCharacterIndex).setRace(mNewRace);
-
-                Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this);
-                startActivity(intent);
-
-                //testing button response
-                //Toast.makeText(ChooseRaceActivity.this, mRadioSelectedButton.getText(),
-                //        Toast.LENGTH_SHORT).show();
+                case R.id.radio_elf         :   mNewRace = Race.ELF;
+                                                break;
+                case R.id.radio_dwarf       :   mNewRace = Race.DWARF;
+                                                break;
+                case R.id.radio_halfling    :   mNewRace = Race.HALFLING;
+                                                break;
+                case R.id.radio_human       :   mNewRace = Race.HUMAN;
+                                                break;
             }
+
+            sCharacters.get(sCurrentCharacterIndex).setRace(mNewRace);
+
+            Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this);
+            startActivity(intent);
+
+            //testing button response
+            //Toast.makeText(ChooseRaceActivity.this, mRadioSelectedButton.getText(),
+            //        Toast.LENGTH_SHORT).show();
         });
 
         mBackButton = findViewById(R.id.back_button);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        mBackButton.setOnClickListener(view -> finish());
 
     }
 }

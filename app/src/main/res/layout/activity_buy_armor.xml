@@ -30,7 +30,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/armor_layout"
@@ -42,5 +42,37 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/armor_checkout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/checkout"/>
+
+            <TextView
+                android:id="@+id/armor_subtotal_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+            <TextView
+                android:id="@+id/armor_subtotal_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="gp"/>
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

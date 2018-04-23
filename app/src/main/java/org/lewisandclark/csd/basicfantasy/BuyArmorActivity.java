@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 
+import org.lewisandclark.csd.basicfantasy.model.Armor;
+
 import java.util.ArrayList;
 import java.util.List;
 
