@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
+import org.lewisandclark.csd.basicfantasy.model.CharacterClass;
+import org.lewisandclark.csd.basicfantasy.model.Race;
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
@@ -72,55 +75,47 @@ public class ChooseClassActivity extends AppCompatActivity {
 
 
         mAcceptButton = findViewById(R.id.accept_class_button);
-        mAcceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int selectedId = mRadioClassGroup.getCheckedRadioButtonId();
+        mAcceptButton.setOnClickListener(view -> {
+            int selectedId = mRadioClassGroup.getCheckedRadioButtonId();
 
-                switch(selectedId){
+            switch(selectedId){
 
-                    case R.id.radio_cleric          :   mNewClass = CharacterClass.CLERIC;
-                                                        mNewHitDie = 6;
-                                                        break;
-                    case R.id.radio_fighter         :   mNewClass = CharacterClass.FIGHTER;
-                                                        mNewHitDie = 8;
-                        break;
-                    case R.id.radio_magic_user      :   mNewClass = CharacterClass.MAGIC_USER;
-                        mNewHitDie = 4;
-                        break;
-                    case R.id.radio_thief           :   mNewClass = CharacterClass.THIEF;
-                        mNewHitDie = 4;
-                        break;
-                    case R.id.radio_fighter_magic_user : mNewClass = CharacterClass.FIGHTER_MU;
-                        mNewHitDie = 6;
-                        break;
-                    case R.id.radio_magic_user_thief : mNewClass = CharacterClass.MU_THIEF;
-                        mNewHitDie = 4;
-                        break;
-
-                }
-                // Elf and Halfling can only have max hitdie of 6
-                if ((sCharacters.get(sCurrentCharacterIndex).getRace()==Race.ELF ||
-                        sCharacters.get(sCurrentCharacterIndex).getRace()==Race.HALFLING)
-                        && mNewHitDie > 6){
+                case R.id.radio_cleric          :   mNewClass = CharacterClass.CLERIC;
+                                                    mNewHitDie = 6;
+                                                    break;
+                case R.id.radio_fighter         :   mNewClass = CharacterClass.FIGHTER;
+                                                    mNewHitDie = 8;
+                    break;
+                case R.id.radio_magic_user      :   mNewClass = CharacterClass.MAGIC_USER;
+                    mNewHitDie = 4;
+                    break;
+                case R.id.radio_thief           :   mNewClass = CharacterClass.THIEF;
+                    mNewHitDie = 4;
+                    break;
+                case R.id.radio_fighter_magic_user : mNewClass = CharacterClass.FIGHTER_MU;
                     mNewHitDie = 6;
-                }
+                    break;
+                case R.id.radio_magic_user_thief : mNewClass = CharacterClass.MU_THIEF;
+                    mNewHitDie = 4;
+                    break;
 
-                sCharacters.get(sCurrentCharacterIndex).setPlayerClass(mNewClass);
-                sCharacters.get(sCurrentCharacterIndex).setHitDie(mNewHitDie);
-
-                Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
-                startActivity(intent);
             }
+            // Elf and Halfling can only have max hitdie of 6
+            if ((sCharacters.get(sCurrentCharacterIndex).getRace()==Race.ELF ||
+                    sCharacters.get(sCurrentCharacterIndex).getRace()==Race.HALFLING)
+                    && mNewHitDie > 6){
+                mNewHitDie = 6;
+            }
+
+            sCharacters.get(sCurrentCharacterIndex).setPlayerClass(mNewClass);
+            sCharacters.get(sCurrentCharacterIndex).setHitDie(mNewHitDie);
+
+            Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
+            startActivity(intent);
         });
 
         mBackButton = findViewById(R.id.back_button);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        mBackButton.setOnClickListener(view -> finish());
 
     }
 

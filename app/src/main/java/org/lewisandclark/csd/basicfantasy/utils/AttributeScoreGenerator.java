@@ -1,4 +1,6 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.utils;
+
+import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
 
 import java.util.Random;
 
@@ -8,7 +10,7 @@ import java.util.Random;
 
 public class AttributeScoreGenerator {
 
-    Random dieRoller = new Random();
+    private Random dieRoller = new Random();
 
     private AttributeScore nextScore(){
         int total = 0;

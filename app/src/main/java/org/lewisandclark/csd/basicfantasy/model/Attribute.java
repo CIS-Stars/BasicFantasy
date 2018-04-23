@@ -1,4 +1,4 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
 
 
 
@@ -12,5 +12,5 @@ import java.io.Serializable;
 
 public enum Attribute implements Serializable {
 
-    STR,INT,WIS,DEX,CON,CHA;
+    STR,INT,WIS,DEX,CON,CHA
 }

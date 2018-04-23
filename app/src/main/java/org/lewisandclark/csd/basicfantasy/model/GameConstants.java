@@ -1,4 +1,4 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
 
 /**
  * Created by Thorin Schmidt on 3/30/2018.

@@ -1,4 +1,4 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
 
 import java.io.Serializable;
 
@@ -8,6 +8,6 @@ import java.io.Serializable;
 
 public enum Money implements Serializable {
 
-    PP,GP,EP,SP,CP;
+    PP,GP,EP,SP,CP
 }
 

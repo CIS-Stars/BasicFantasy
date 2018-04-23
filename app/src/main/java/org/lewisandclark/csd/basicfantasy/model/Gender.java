@@ -1,4 +1,6 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.model;
+
+import org.lewisandclark.csd.basicfantasy.R;
 
 /**
  * Created by Thorin Schmidt on 3/18/2018.

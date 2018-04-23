@@ -1,4 +1,4 @@
-package org.lewisandclark.csd.basicfantasy;
+package org.lewisandclark.csd.basicfantasy.utils;
 
 import java.util.Random;
 
@@ -10,13 +10,14 @@ import java.util.Random;
  * "statroll" method written by Thorin Schmidt
  */
 
+@SuppressWarnings("WeakerAccess")
 public class DieRoller {
     private static Random sRandom;
 
     /**
      * returns a random index for use in getting a random array element
-     * @param arrayLength
-     * @return
+     * @param arrayLength - used to supply the upper bound
+     * @return - the random index
      */
     public static int rollIndex(int arrayLength){
         if (sRandom == null) {
@@ -73,7 +74,7 @@ public class DieRoller {
 
     /**
      * "Rolls a d20" 'rolls' number of times.
-     * @param rolls
+     * @param rolls - number of times to generate the die roll
      * @return the sum of all rolls
      */
     public static int d20(int rolls) {
@@ -99,7 +100,7 @@ public class DieRoller {
 
     /**
      * "Rolls a d6" 'rolls' number of times.
-     * @param rolls
+     * @param rolls - number of times to generate the die rolls
      * @return the sum of all rolls
      */
     public static int d6(int rolls) {

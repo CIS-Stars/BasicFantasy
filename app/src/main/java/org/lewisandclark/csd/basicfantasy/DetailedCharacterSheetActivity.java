@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
+
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 
+@SuppressWarnings("UnnecessaryLocalVariable")
 public class DetailedCharacterSheetActivity extends AppCompatActivity {
 
     PlayerCharacter mPlayerCharacter;
+
     public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, DetailedCharacterSheetActivity.class);
         //Intent Extras go here

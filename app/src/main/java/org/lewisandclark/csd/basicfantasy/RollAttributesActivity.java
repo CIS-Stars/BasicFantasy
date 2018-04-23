@@ -9,20 +9,23 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.lewisandclark.csd.basicfantasy.model.Attribute;
+import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
+import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
+
 import java.util.HashMap;
 
-import static org.lewisandclark.csd.basicfantasy.Attribute.CHA;
-import static org.lewisandclark.csd.basicfantasy.Attribute.CON;
-import static org.lewisandclark.csd.basicfantasy.Attribute.DEX;
-import static org.lewisandclark.csd.basicfantasy.Attribute.INT;
-import static org.lewisandclark.csd.basicfantasy.Attribute.STR;
-import static org.lewisandclark.csd.basicfantasy.Attribute.WIS;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CHA;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CON;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.DEX;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.INT;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.STR;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 
 public class RollAttributesActivity extends AppCompatActivity {
 
@@ -207,65 +210,53 @@ public class RollAttributesActivity extends AppCompatActivity {
 
         //updateMods();
         mRollStats = findViewById(R.id.roll_stats_button);
-        mRollStats.setOnClickListener(new View.OnClickListener() {
+        mRollStats.setOnClickListener(view -> {
+            //increment the counter
+            HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).incrementStatRollCounter();
+            mRollCounterTextView.setText(Integer.toString(HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
 
-            @Override
-            public void onClick(View view) {
-                //increment the counter
-                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).incrementStatRollCounter();
-                mRollCounterTextView.setText(Integer.toString(HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
+            //disable editing
+            mStrEditText.setInputType(InputType.TYPE_NULL);
+            mIntEditText.setInputType(InputType.TYPE_NULL);
+            mWisEditText.setInputType(InputType.TYPE_NULL);
+            mDexEditText.setInputType(InputType.TYPE_NULL);
+            mConEditText.setInputType(InputType.TYPE_NULL);
+            mChaEditText.setInputType(InputType.TYPE_NULL);
 
-                //disable editing
-                mStrEditText.setInputType(InputType.TYPE_NULL);
-                mIntEditText.setInputType(InputType.TYPE_NULL);
-                mWisEditText.setInputType(InputType.TYPE_NULL);
-                mDexEditText.setInputType(InputType.TYPE_NULL);
-                mConEditText.setInputType(InputType.TYPE_NULL);
-                mChaEditText.setInputType(InputType.TYPE_NULL);
-
-                //generate the random stats
-                Log.d(TAG, "RollStats clicked.");
-                //noinspection ForLoopReplaceableByForEach
-                for (int i = 0; i < mStatArray.length; i++) {
-                    mStatArray[i].setScore(DieRoller.statRoll());
-                }
-
-                mStrEditText.setText(Integer.toString(mStatArray[STR.ordinal()].getScore()));
-                mIntEditText.setText(Integer.toString(mStatArray[INT.ordinal()].getScore()));
-                mWisEditText.setText(Integer.toString(mStatArray[WIS.ordinal()].getScore()));
-                mDexEditText.setText(Integer.toString(mStatArray[DEX.ordinal()].getScore()));
-                mConEditText.setText(Integer.toString(mStatArray[CON.ordinal()].getScore()));
-                mChaEditText.setText(Integer.toString(mStatArray[CHA.ordinal()].getScore()));
-                updateMods();
+            //generate the random stats
+            Log.d(TAG, "RollStats clicked.");
+            //noinspection ForLoopReplaceableByForEach
+            for (int i = 0; i < mStatArray.length; i++) {
+                mStatArray[i].setScore(DieRoller.statRoll());
             }
+
+            mStrEditText.setText(Integer.toString(mStatArray[STR.ordinal()].getScore()));
+            mIntEditText.setText(Integer.toString(mStatArray[INT.ordinal()].getScore()));
+            mWisEditText.setText(Integer.toString(mStatArray[WIS.ordinal()].getScore()));
+            mDexEditText.setText(Integer.toString(mStatArray[DEX.ordinal()].getScore()));
+            mConEditText.setText(Integer.toString(mStatArray[CON.ordinal()].getScore()));
+            mChaEditText.setText(Integer.toString(mStatArray[CHA.ordinal()].getScore()));
+            updateMods();
         });
 
         mAcceptStats = findViewById(R.id.accept_stats_button);
-        mAcceptStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //put stats into player character record.
-                Log.d(TAG, "AcceptStats clicked.");
+        mAcceptStats.setOnClickListener(view -> {
+            //put stats into player character record.
+            Log.d(TAG, "AcceptStats clicked.");
 
-                if(statsAreValid()) {
-                    HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setStatArray(mStatArray);
+            if(statsAreValid()) {
+                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setStatArray(mStatArray);
 
-                    Intent intent = ChooseRaceActivity.newIntent(RollAttributesActivity.this);
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(RollAttributesActivity.this, R.string.invalid_atributes, Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = ChooseRaceActivity.newIntent(RollAttributesActivity.this);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(RollAttributesActivity.this, R.string.invalid_atributes, Toast.LENGTH_SHORT).show();
             }
         });
 
         mBackButton = findViewById(R.id.back_button);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        mBackButton.setOnClickListener(view -> finish());
 
     }
 

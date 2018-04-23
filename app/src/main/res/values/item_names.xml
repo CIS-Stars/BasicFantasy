@@ -15,7 +15,8 @@
     <string name="holy_water">Holy Water, per vial</string>
 
     <!-- Armor Names -->
-    <string name="none">No Armor</string>
+    <string name="no_armor">No Armor</string>
+    <string name="no_shield">No Shield</string>
     <string name="padded">Padded</string>
     <string name="hide">Hide</string>
     <string name="leather">Leather</string>
