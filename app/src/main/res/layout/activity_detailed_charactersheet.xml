@@ -10,7 +10,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/editTextName"
+            android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -20,7 +20,7 @@
 
 
         <TextView
-            android:id="@+id/editTextClass"
+            android:id="@+id/text_view_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,7 +29,7 @@
             android:text="class" />
 
         <TextView
-            android:id="@+id/textViewRace"
+            android:id="@+id/text_view_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,28 +46,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewPlayerName"
+            android:id="@+id/text_view_player_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerClass"
+            android:id="@+id/text_view_player_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerRace"
+            android:id="@+id/text_view_player_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,7 +75,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewAge"
+            android:id="@+id/text_view_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -86,7 +83,7 @@
             android:text="@string/character_age" />
 
         <TextView
-            android:id="@+id/textViewHeight"
+            android:id="@+id/text_view_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -94,7 +91,7 @@
             android:text="@string/character_height" />
 
         <TextView
-            android:id="@+id/textViewWeight"
+            android:id="@+id/text_view_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -110,28 +107,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewPlayerAge"
+            android:id="@+id/text_view_player_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerHeight"
+            android:id="@+id/text_view_player_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerWeight"
+            android:id="@+id/text_view_player_wieght"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +136,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewEyeColor"
+            android:id="@+id/text_view_eye_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -150,7 +144,7 @@
             android:text="Eye Color:" />
 
         <TextView
-            android:id="@+id/textViewHairColor"
+            android:id="@+id/text_view_hair_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -174,28 +168,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewPlayerEyeColor"
+            android:id="@+id/text_view_player_eye_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerHairColor"
+            android:id="@+id/text_view_player_hair_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
 
         <TextView
-            android:id="@+id/textViewPlayerGold"
+            android:id="@+id/text_view_player_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10"
-            android:text="TextView" />
+            android:minEms="10" />
     </LinearLayout>
 
     <LinearLayout
@@ -206,7 +197,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/text_view_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Notes" />
@@ -215,10 +206,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/text_view_player_notes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textMultiLine" />
         </ScrollView>
     </LinearLayout>
 
