@@ -11,6 +11,8 @@ import android.widget.Toast;
 import org.lewisandclark.csd.basicfantasy.model.Armor;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
+import org.lewisandclark.csd.basicfantasy.model.Shield;
+import org.lewisandclark.csd.basicfantasy.model.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +20,11 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<>();
-    public static ArrayList<Armor> sArmors = new ArrayList<>();
     public static ArrayList<Item> sItems = new ArrayList<>();
+    public static ArrayList<Armor> sArmors = new ArrayList<>();
+    public static ArrayList<Shield> sShields = new ArrayList<>();
+    public static ArrayList<Weapon> sWeapons = new ArrayList<>();
+
     public static int sCurrentCharacterIndex;
 
     private Spinner mCharacterListSpinner;
@@ -29,11 +34,14 @@ public class HomeActivity extends AppCompatActivity {
     private Button mBuyEquipmentButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         sArmors.addAll(buildArmorList());
+        sShields.addAll(buildShieldList());
+        sWeapons.addAll(buildWeaponList());
         sCurrentCharacterIndex = 0;
         sCharacters.add(new PlayerCharacter());
 
@@ -75,6 +83,16 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    private ArrayList<Shield> buildShieldList() {
+        ArrayList<Shield> list = new ArrayList<>();
+
+        list.add(new Shield(R.string.buckler, "", 2, 5, 1, 1, 0, 0, 0));
+        list.add(new Shield(R.string.medium, "", 5, 7, 1, 1, 1, 0, 0));
+        list.add(new Shield(R.string.tower, "", 12, 15, 1, 1, 3, 0, 0));
+
+        return list;
+    }
+
     private ArrayList<Armor> buildArmorList() {
         ArrayList<Armor> armorList = new ArrayList<>();
 
@@ -93,5 +111,27 @@ public class HomeActivity extends AppCompatActivity {
         armorList.add(new Armor(R.string.full_plate,"",80,1500,1,19,19,0,0));
 
         return armorList;
+    }
+
+    private ArrayList<Weapon> buildWeaponList(){
+        ArrayList<Weapon> list = new ArrayList<>();
+
+        list.add(new Weapon(R.string.hand_axe, 4, 5, 6, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
+        list.add(new Weapon(R.string.battle_axe, 7, 7, 8, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
+        list.add(new Weapon(R.string.great_axe, 14, 15, 10, 1, 0,
+                0, "", true, false, 0, 0,
+                0, ""));
+        list.add(new Weapon(R.string.pickaxe, 6, 4, 6, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
+        list.add(new Weapon(R.string.mattock, 8, 6, 8, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
+
+        return list;
     }
 }

@@ -44,6 +44,7 @@ public class PlayerCharacter {
     private int mArmorClass;
     private Armor mEquippedArmor;
     private Shield mEquippedShield;
+    private Weapon mEquippedWeapon;
 
     private int mBaseAttackBonus;
     private int mMeleeAttackBonus;
@@ -115,16 +116,18 @@ public class PlayerCharacter {
         }
         this.mCurrentHitPoints = this.mTotalHitPoints;
 
-        // Attack Bonus
+        // Attack Bonus and weapons
         mBaseAttackBonus = ATTACK_BONUS_MATRIX[mPlayerClass.ordinal()][mLevel];
         mMeleeAttackBonus = mBaseAttackBonus + mStatArray[STR.ordinal()].getModifier();
         mRangedAttackBonus = mBaseAttackBonus + mStatArray[DEX.ordinal()].getModifier();
+        this.mEquipmentList.add(new Weapon()); //adds entry to "Fists"
+        this.mEquippedWeapon = (Weapon) this.mEquipmentList.get(0);
 
         //Armor Class and Armor
         this.mEquipmentList.add(new Armor());  //adds entry for "No Armor"
         this.mEquipmentList.add(new Shield()); // adds entry for "No Shield"
-        this.mEquippedArmor = (Armor) this.mEquipmentList.get(0);
-        this.mEquippedShield = (Shield) this.mEquipmentList.get(1);
+        this.mEquippedArmor = (Armor) this.mEquipmentList.get(1);
+        this.mEquippedShield = (Shield) this.mEquipmentList.get(2);
 
         //Saves
         switch (this.mPlayerClass){
@@ -464,5 +467,9 @@ public class PlayerCharacter {
 
     public void setEquipmentList(ArrayList<Item> equipmentList) {
         mEquipmentList = equipmentList;
+    }
+
+    public void addEquipment(Item item){
+        this.mEquipmentList.add(item);
     }
 }

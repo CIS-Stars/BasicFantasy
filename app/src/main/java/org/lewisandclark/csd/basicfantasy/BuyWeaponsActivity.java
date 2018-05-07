@@ -14,81 +14,62 @@ import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.lewisandclark.csd.basicfantasy.model.Armor;
 import org.lewisandclark.csd.basicfantasy.model.Item;
-import org.lewisandclark.csd.basicfantasy.model.Shield;
+import org.lewisandclark.csd.basicfantasy.model.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sArmors;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sShields;
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sWeapons;
 @SuppressLint("DefaultLocale")
-public class BuyArmorActivity extends AppCompatActivity {
+public class BuyWeaponsActivity extends AppCompatActivity {
 
-    private LinearLayout mArmorLayout;
-    private List<CheckedTextView> mArmorCheckedTextViews = new ArrayList<>();
-    private List<CheckedTextView> mShieldCheckedTextViews = new ArrayList<>();
+    private LinearLayout mWeaponsLayout;
+    private List<CheckedTextView> mWeaponCheckedTextViews = new ArrayList<>();
     private Button mCheckoutButton;
     private TextView mSubtotalView;
     private CheckBox mBuyForFree;
-
 
     public static Intent newIntent(Context packageContext){
         //Intent theIntent = new Intent(packageContext, ChooseRaceActivity.class);
         //Intent Extras go here
         //return theIntent;
-        return new Intent(packageContext, BuyArmorActivity.class);
+        return new Intent(packageContext, BuyWeaponsActivity.class);
     }
 
-
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_armor);
+        setContentView(R.layout.activity_buy_weapons);
 
-        mSubtotalView = findViewById(R.id.armor_subtotal_view);
+        mSubtotalView = findViewById(R.id.weapon_subtotal_view);
         mSubtotalView.setText("0.0");
 
         mBuyForFree = findViewById(R.id.buy_for_free_checkbox);
         mBuyForFree.setChecked(false);
         mBuyForFree.setOnCheckedChangeListener((compoundButton, b) -> updateSubtotal());
 
-        //Populate the ScrollView.  First with armors
-        mArmorLayout = findViewById(R.id.armor_layout);
-        for (Armor item: sArmors) {
+        //Populate the ScrollView.  First with melee weapons, then ranged, then ammo
+        mWeaponsLayout = findViewById(R.id.weapons_layout);
+        for (Weapon item : sWeapons) {
+            Log.d("WEAPON", "found one");
             CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:     %.1fgp",getString(item.getNameID()),item.getCostInGP()));
+            v.setText(String.format("%s:     %.1fgp", getString(item.getNameID()), item.getCostInGP()));
             v.setChecked(false);
-            v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
+            v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
             v.setOnClickListener(view -> onCheckTextClick(v));
-            mArmorCheckedTextViews.add(v);
-            mArmorLayout.addView(v);
+            mWeaponCheckedTextViews.add(v);
+            mWeaponsLayout.addView(v);
         }
 
-        //now the shields
-        for (Shield item: sShields) {
-            CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:     %.1fgp",getString(item.getNameID()),item.getCostInGP()));
-            v.setChecked(false);
-            v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
-            v.setOnClickListener(view -> onCheckTextClick(v));
-            mShieldCheckedTextViews.add(v);
-            mArmorLayout.addView(v);
-        }
-
-        mCheckoutButton = findViewById(R.id.armor_checkout_button);
+        mCheckoutButton = findViewById(R.id.weapon_checkout_button);
         mCheckoutButton.setOnClickListener(view -> {
-            for(int i = 0; i< mArmorCheckedTextViews.size(); i++){
-                if(mArmorCheckedTextViews.get(i).isChecked()){
-                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sArmors.get(i));
-                }
-            }
-            for(int i = 0; i< mShieldCheckedTextViews.size(); i++){
-                if(mShieldCheckedTextViews.get(i).isChecked()){
-                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sShields.get(i));
+            for(int i = 0; i< mWeaponCheckedTextViews.size(); i++){
+                if(mWeaponCheckedTextViews.get(i).isChecked()){
+                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sWeapons.get(i));
                 }
             }
             logIt();
@@ -112,18 +93,12 @@ public class BuyArmorActivity extends AppCompatActivity {
         return true;
     }
 
-    @SuppressLint("DefaultLocale")
     private void updateSubtotal(){
         float subtotal = 0;
         if(!mBuyForFree.isChecked()) {
-            for (int i = 0; i < mArmorCheckedTextViews.size(); i++) {
-                if (mArmorCheckedTextViews.get(i).isChecked()) {
-                    subtotal += sArmors.get(i).getCostInGP();
-                }
-            }
-            for (int i = 0; i < mShieldCheckedTextViews.size(); i++) {
-                if (mShieldCheckedTextViews.get(i).isChecked()) {
-                    subtotal += sShields.get(i).getCostInGP();
+            for (int i = 0; i < mWeaponCheckedTextViews.size(); i++) {
+                if (mWeaponCheckedTextViews.get(i).isChecked()) {
+                    subtotal += sWeapons.get(i).getCostInGP();
                 }
             }
         }
@@ -136,4 +111,8 @@ public class BuyArmorActivity extends AppCompatActivity {
 
         }
     }
+
+    // TODO: 4/23/2018 Create a custom view that displays the full weapon table from Equipment
+    //     Emporium then inflate that view for use in a dialog box.
+    //     https://stackoverflow.com/questions/16955053/android-how-do-i-make-this-alert-dialog-scrollable
 }

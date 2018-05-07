@@ -16,7 +16,6 @@
 
     <!-- Armor Names -->
     <string name="no_armor">No Armor</string>
-    <string name="no_shield">No Shield</string>
     <string name="padded">Padded</string>
     <string name="hide">Hide</string>
     <string name="leather">Leather</string>
@@ -30,5 +29,41 @@
     <string name="plate">Plate Mail</string>
     <string name="field_plate">Field Plate Mail</string>
     <string name="full_plate">Full Plate Mail</string>
-    
+
+    <!-- Shield Names -->
+    <string name="no_shield">No Shield</string>
+    <string name="buckler">Buckler</string>
+    <string name="medium">Medium Shield</string>
+    <string name="tower">Tower Shield</string>
+
+    <!-- Melee Weapon Names -->
+    <string name="hand_axe">Hand Axe</string>
+    <string name="battle_axe">Battle Axe</string>
+    <string name="great_axe">Great Axe</string>
+    <string name="pickaxe">Pickaxe</string>
+    <string name="mattock">Mattock</string>
+    <string name="dagger">Dagger</string>
+    <string name="defending_dagger">Defending Dagger</string>
+    <string name="silver_dagger">Silver Dagger</string>
+    <string name="shortsword">Short Sword</string>
+    <string name="cutlass">Cutlass</string>
+    <string name="longsword">Long Sword</string>
+    <string name="scimitar">Scimitar</string>
+    <string name="two_hand_sword">Two Handed Sowrd</string>
+    <string name="warhammer">Warhammer</string>
+    <string name="light_mace">Mace</string>
+    <string name="morningstar">Morningstar</string>
+    <string name="maul">Maul</string>
+    <string name="great_mace">Great Mace</string>
+    <string name="spear">Spear</string>
+    <string name="one_hand_spear">Spear, One Hand</string>
+    <string name="two_hand_spear">Spear, Two Hands</string>
+    <string name="fork">Fork</string>
+    <string name="one_hand_fork">Fork, One Hand</string>
+    <string name="two_hand_fork">Fork, Two Hand</string>
+
+
+    <!-- Ranged Weapon Names -->
+    <string name="thrown_spear">Spear, Thrown</string>
+
 </resources>

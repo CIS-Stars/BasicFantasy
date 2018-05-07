@@ -51,9 +51,11 @@
     <string name="six_digit_invisible_hint">000000</string>
     <string name="title_activity_choose_armor_scrolling">ChooseArmorScrollingActivity</string>
     <string name="buy_armor_title">Buy Armor</string>
-    <string name="buy_armor_instructions">Make your selections, then click the \"Confirm Purchase\" button to return to the previous screen.  GOld will be deducted automatically.</string>
+    <string name="buy_weapons_title">Buy Weapons</string>
+    <string name="buy_stuff_instructions">Make your selections, then click the \"Confirm Purchase\" button to return to the previous screen.  Gold will be deducted automatically.</string>
     <string name="buy_equipment">Buy Equipment</string>
     <string name="free_purchase">Check this for free purchase</string>
     <string name="existing_characters">Existing Character(s):</string>
     <string name="open_character">Open Character</string>
+    <string name="fists">Fists</string>
 </resources>

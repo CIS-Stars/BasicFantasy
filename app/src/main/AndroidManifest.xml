@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lewisandclark.csd.basicfantasy">
+          package="org.lewisandclark.csd.basicfantasy">
 
     <application
         android:allowBackup="true"
@@ -13,16 +13,16 @@
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".RollAttributesActivity"/>
@@ -32,6 +32,10 @@
         <activity android:name=".BuyEquipmentActivity"/>
         <activity android:name=".BuyArmorActivity"/>
         <activity android:name=".DetailedCharacterSheetActivity"/>
+        <activity android:name=".BuyWeaponsActivity">
+        </activity>
+        <activity android:name=".Page1Activity">
+        </activity>
     </application>
 
 </manifest>
