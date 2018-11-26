@@ -14,9 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="textPersonName"
             android:minEms="10"
-            android:text="Name:" />
+            android:text="@string/name" />
 
 
         <TextView
@@ -24,9 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="textPersonName"
             android:minEms="10"
-            android:text="class" />
+            android:text="@string/character_class" />
 
         <TextView
             android:id="@+id/text_view_race"
@@ -34,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="Race:" />
+            android:text="@string/race" />
 
     </LinearLayout>
 
@@ -45,26 +43,30 @@
         android:layout_row="1"
         android:orientation="horizontal">
 
-        <TextView
+        <EditText
             android:id="@+id/text_view_player_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:importantForAutofill="no"
+            android:inputType=""/>
 
-        <TextView
+        <EditText
             android:id="@+id/text_view_player_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:inputType=""/>
 
-        <TextView
+        <EditText
             android:id="@+id/text_view_player_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:inputType=""/>
     </LinearLayout>
 
     <LinearLayout
@@ -141,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="Eye Color:" />
+            android:text="@string/eye_color" />
 
         <TextView
             android:id="@+id/text_view_hair_color"
@@ -149,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="Hair Color:" />
+            android:text="@string/hair_color" />
 
         <Spinner
             android:id="@+id/spinnerCurrency"
@@ -200,7 +202,7 @@
             android:id="@+id/text_view_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notes" />
+            android:text="@string/notes" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -209,7 +211,7 @@
             <EditText
                 android:id="@+id/text_view_player_notes"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textMultiLine" />
         </ScrollView>
