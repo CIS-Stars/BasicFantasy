@@ -69,5 +69,14 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
         mTextViewPlayerHairColor = findViewById(R.id.text_view_player_hair_color);
         mTextViewPlayerMoney = findViewById(R.id.text_view_player_money);
 
+        mTextViewPlayerName.setText(mPlayerCharacter.getName());
+        mTextViewPlayerClass.setText(mPlayerCharacter.getPlayerClass().getResId());
+        mTextViewPlayerRace.setText(mPlayerCharacter.getRace().getResId());
+        mTextViewPlayerAge.setText(mPlayerCharacter.getAge());
+        mTextViewPlayerHeight.setText(mPlayerCharacter.getHeight());
+        mTextViewPlayerWeight.setText(mPlayerCharacter.getWeight());
+        mTextViewPlayerEyeColor.setText(mPlayerCharacter.get());
+        mTextViewPlayerHeight.setText(mPlayerCharacter.getHeight());
+        mTextViewPlayerWeight.setText(mPlayerCharacter.getWeight());
     }
 }

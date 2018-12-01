@@ -88,8 +88,8 @@ public class PlayerCharacter {
         this.mLevel = 1;
         this.mXP = 0;
         this.mHitDie = 8;
-        this.mTotalHitPoints = 0;
-        this.mCurrentHitPoints = 0;
+        this.mTotalHitPoints = 8;
+        this.mCurrentHitPoints = 8;
 
         this.mStatRollCounter = 1;
         this.mStatArray[STR.ordinal()] = new AttributeScore(15);
