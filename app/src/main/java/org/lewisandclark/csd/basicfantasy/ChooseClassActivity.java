@@ -107,7 +107,7 @@ public class ChooseClassActivity extends AppCompatActivity {
                 mNewHitDie = 6;
             }
 
-            sCharacters.get(sCurrentCharacterIndex).setPlayerClass(mNewClass);
+            sCharacters.get(sCurrentCharacterIndex).setCharacterClass(mNewClass);
             sCharacters.get(sCurrentCharacterIndex).setHitDie(mNewHitDie);
 
             Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);

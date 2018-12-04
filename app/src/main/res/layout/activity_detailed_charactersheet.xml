@@ -14,9 +14,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@id/text_view_player_name"
             android:minEms="10"
             android:text="@string/name"
-            android:labelFor="@id/text_view_player_name"/>
+            android:textSize="24sp" />
 
 
         <TextView
@@ -24,18 +25,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@id/text_view_player_class"
             android:minEms="10"
             android:text="@string/character_class"
-            android:labelFor="@id/text_view_player_class"/>
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/text_view_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@id/text_view_player_race"
             android:minEms="10"
             android:text="@string/race"
-            android:labelFor="@id/text_view_player_race"/>
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -87,7 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="@string/character_age" />
+            android:text="@string/character_age"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/text_view_height"
@@ -95,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="@string/character_height" />
+            android:text="@string/character_height"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/text_view_weight"
@@ -103,7 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="@string/character_weight" />
+            android:text="@string/character_weight"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,21 +124,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/text_view_player_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/text_view_player_wieght"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:minEms="10" />
+            android:minEms="10"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -148,7 +157,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="@string/eye_color" />
+            android:text="@string/eye_color"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/text_view_hair_color"
@@ -156,7 +166,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minEms="10"
-            android:text="@string/hair_color" />
+            android:text="@string/hair_color"
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/spinnerCurrency"
