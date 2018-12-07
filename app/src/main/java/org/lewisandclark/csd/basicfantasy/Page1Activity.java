@@ -8,12 +8,10 @@ import android.widget.TextView;
 
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 
 public class Page1Activity extends AppCompatActivity {
-
-    PlayerCharacter mCurrentCharacter;
+    private PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewCharacterName;
     private TextView mTextViewCharacterClass;
@@ -29,6 +27,8 @@ public class Page1Activity extends AppCompatActivity {
     private TextView mTextViewWisdomMod;
     private TextView mTextViewCharismaScore;
     private TextView mTextViewChrasismaMod;
+
+
 
     public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, Page1Activity.class);
@@ -58,6 +58,8 @@ public class Page1Activity extends AppCompatActivity {
         mTextViewWisdomMod = findViewById(R.id.wisdom_mod);
         mTextViewCharismaScore = findViewById(R.id.charisma_score);
         mTextViewChrasismaMod = findViewById(R.id.charisma_mod);
+
+        mTextViewCharacterName.setText(mCurrentCharacter.getName());
 
 
 
