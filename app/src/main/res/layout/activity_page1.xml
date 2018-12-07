@@ -23,37 +23,36 @@
                 android:id="@+id/character_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="18sp"
-                tools:background="@drawable/customborder"
-                tools:text="Gray Mouser"/>
+                tools:background="@drawable/customborder_title"
+                tools:text="Gray Mouser" />
 
             <TextView
                 android:id="@+id/character_class_and_level"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="18sp"
-                tools:background="@drawable/customborder"
-                tools:text="Thief 5"/>
+                tools:background="@drawable/customborder_title"
+                tools:text="Thief 5" />
 
 
         </TableRow>
 
         <View
-            android:id="@+id/divider2"
+            android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/white"
-            />
+            android:background="@color/black" />
 
         <TableRow
             android:id="@+id/stats_row_1"
@@ -65,7 +64,7 @@
                 android:id="@+id/strength_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -77,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/strength"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -90,12 +89,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/strength_mod"
@@ -103,8 +102,8 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
-                    </LinearLayout>
+                        tools:text="+2" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -112,7 +111,7 @@
                 android:id="@+id/dexterity_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -124,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dexterity"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -137,12 +136,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/dexterity_mod"
@@ -150,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
+                        tools:text="+2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -167,7 +166,7 @@
                 android:id="@+id/intelligence_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -179,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/intelligence"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -192,12 +191,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/intelligence_mod"
@@ -205,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
+                        tools:text="+2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -214,7 +213,7 @@
                 android:id="@+id/constitution_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -226,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/constitution"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -239,12 +238,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/constitution_mod"
@@ -252,7 +251,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
+                        tools:text="+2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -269,7 +268,7 @@
                 android:id="@+id/wisdom_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -281,7 +280,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/wisdom"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -294,12 +293,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/wisdom_mod"
@@ -307,7 +306,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
+                        tools:text="+2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -316,7 +315,7 @@
                 android:id="@+id/charisma_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -328,7 +327,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/charisma"
                     android:textColor="@color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -341,12 +340,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17"/>
+                        tools:text="17" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider"/>
+                        android:background="?android:attr/listDivider" />
 
                     <TextView
                         android:id="@+id/charisma_mod"
@@ -354,7 +353,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="+2"/>
+                        tools:text="+2" />
                 </LinearLayout>
             </LinearLayout>
         </TableRow>
@@ -363,14 +362,202 @@
             android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/white"/>
+            android:background="@color/black" />
 
         <TableRow
-            android:id="@+id/ac_hitpoints_row"
+            android:id="@+id/saving_throws_row1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
+            android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:id="@+id/death_save_layout"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                tools:background="@drawable/customborder_saves">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/death_save"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_weight="9"
+                    android:gravity="left"/>
+
+
+                <TextView
+                    android:id="@+id/death_save_target_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="17"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/saving_throws_row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/magic_save_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                tools:background="@drawable/customborder_saves">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/magic_save"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_weight="9"
+                    android:gravity="left"/>
+
+
+                <TextView
+                    android:id="@+id/magic_save_target_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="17"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/saving_throws_row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/paralysis_save_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                tools:background="@drawable/customborder_saves">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paralysis_save"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_weight="9"
+                    android:gravity="left"/>
+
+                <TextView
+                    android:id="@+id/paralysis_save_target_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="17"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/saving_throws_row4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/dragon_save_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                tools:background="@drawable/customborder_saves">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dragon_save"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_weight="9"
+                    android:gravity="left"/>
+
+
+                <TextView
+                    android:id="@+id/dragon_save_target_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="17"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/saving_throws_row5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/spell_save_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                tools:background="@drawable/customborder_saves">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/spell_save"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" 
+                    android:layout_weight="9"
+                    android:gravity="left"/>
+
+                <TextView
+                    android:id="@+id/spell_save_target_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="17" 
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+            </LinearLayout>
 
         </TableRow>
 

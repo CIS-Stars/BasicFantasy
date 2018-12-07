@@ -7,4 +7,6 @@
     <color name="lime">#00FF00</color>
     <color name="cell_background">#cba46a</color>
     <color name="black">#000000</color>
+    <color name="green">#00FF00</color>
+    <color name="dark_green">#006400</color>
 </resources>

@@ -64,4 +64,16 @@
     <string name="notes">Notes</string>
     <string name="character_class">Class:</string>
     <string name="race">Race:</string>
+    <string name="hp">HP</string>
+    <string name="AC">AC</string>
+    <string name="death_save">Death Ray or Poison</string>
+    <string name="magic_save">Magic Wands</string>
+    <string name="paralysis_save">Paralysis or Turn to Stone</string>
+    <string name="dragon_save">Dragon Breath</string>
+    <string name="spell_save">Rods, Staves, and Spells</string>
+    <string name="weapon1">Weapon 1</string>
+    <string name="weapon2">Weapon 2</string>
+    <string name="weapon3">Weapon 3</string>
+    <string name="weapon4">Weapon 4</string>
+    <string name="weapon5">Weapon 5</string>
 </resources>
