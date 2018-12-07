@@ -41,6 +41,7 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
         //Intent Extras go here
         return theIntent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

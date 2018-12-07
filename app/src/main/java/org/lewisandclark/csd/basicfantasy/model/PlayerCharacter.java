@@ -96,11 +96,11 @@ public class PlayerCharacter {
         this.mEyeColor = "Green";
 
         this.mStatRollCounter = 1;
-        this.mStatArray[STR.ordinal()] = new AttributeScore(15);
-        this.mStatArray[INT.ordinal()] = new AttributeScore(10);
+        this.mStatArray[STR.ordinal()] = new AttributeScore(18);
+        this.mStatArray[INT.ordinal()] = new AttributeScore(16);
         this.mStatArray[WIS.ordinal()] = new AttributeScore(9);
         this.mStatArray[DEX.ordinal()] = new AttributeScore(12);
-        this.mStatArray[CON.ordinal()] = new AttributeScore(12);
+        this.mStatArray[CON.ordinal()] = new AttributeScore(8);
         this.mStatArray[CHA.ordinal()] = new AttributeScore(5);
         this.autoCalc();
     }
