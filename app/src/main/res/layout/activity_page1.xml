@@ -23,7 +23,7 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="18sp"
-                tools:background="@drawable/customborder_title"
+                android:background="@drawable/customborder_title"
                 tools:text="Gray Mouser" />
 
             <TextView
@@ -36,7 +36,7 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="18sp"
-                tools:background="@drawable/customborder_title"
+                android:background="@drawable/customborder_title"
                 tools:text="Thief 5" />
 
 
@@ -63,7 +63,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,8 +87,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent" />
 
                     <TextView
                         android:id="@+id/strength_mod"
@@ -110,7 +109,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -134,8 +133,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
                     <TextView
                         android:id="@+id/dexterity_mod"
@@ -165,7 +163,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,8 +187,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
                     <TextView
                         android:id="@+id/intelligence_mod"
@@ -212,7 +209,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -236,8 +233,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
                     <TextView
                         android:id="@+id/constitution_mod"
@@ -267,7 +263,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -291,8 +287,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
                     <TextView
                         android:id="@+id/wisdom_mod"
@@ -314,7 +309,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder">
+                android:background="@drawable/customborder">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -338,8 +333,7 @@
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
                     <TextView
                         android:id="@+id/charisma_mod"
@@ -367,7 +361,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:textAlignment="center"
-            tools:background="@drawable/customborder_saves">
+            android:background="@drawable/customborder_saves">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -400,7 +394,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:textAlignment="center"
-            tools:background="@drawable/customborder_saves">
+            android:background="@drawable/customborder_saves">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -433,7 +427,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:textAlignment="center"
-            tools:background="@drawable/customborder_saves">
+            android:background="@drawable/customborder_saves">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -465,7 +459,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:textAlignment="center"
-            tools:background="@drawable/customborder_saves">
+            android:background="@drawable/customborder_saves">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -498,7 +492,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:textAlignment="center"
-            tools:background="@drawable/customborder_saves">
+            android:background="@drawable/customborder_saves">
 
             <TextView
                 android:layout_width="wrap_content"
