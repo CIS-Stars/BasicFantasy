@@ -13,7 +13,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 @SuppressWarnings("UnnecessaryLocalVariable")
 public class DetailedCharacterSheetActivity extends AppCompatActivity {
 
-    PlayerCharacter mPlayerCharacter;
+    PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewName;
     private TextView mTextViewClass;
@@ -24,15 +24,15 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
     private TextView mTextViewEyeColor;
     private TextView mTextViewHairColor;
 
-    private TextView mTextViewPlayerName;
-    private TextView mTextViewPlayerClass;
-    private TextView mTextViewPlayerRace;
-    private TextView mTextViewPlayerAge;
-    private TextView mTextViewPlayerHeight;
-    private TextView mTextViewPlayerWeight;
-    private TextView mTextViewPlayerEyeColor;
-    private TextView mTextViewPlayerHairColor;
-    private TextView mTextViewPlayerMoney;
+    private TextView mTextViewCurrentCharacterName;
+    private TextView mTextViewCurrentCharacterClass;
+    private TextView mTextViewCurrentCharacterRace;
+    private TextView mTextViewCurrentCharacterAge;
+    private TextView mTextViewCurrentCharacterHeight;
+    private TextView mTextViewCurrentCharacterWeight;
+    private TextView mTextViewCurrentCharacterEyeColor;
+    private TextView mTextViewCurrentCharacterHairColor;
+    private TextView mTextViewCurrentCharacterMoney;
 
 
 
@@ -41,12 +41,13 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
         //Intent Extras go here
         return theIntent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_charactersheet);
 
-        mPlayerCharacter = sCharacters.get(sCurrentCharacterIndex);
+        mCurrentCharacter = sCharacters.get(sCurrentCharacterIndex);
 
         //textViews that are titles for each entry
         mTextViewName = findViewById(R.id.text_view_name);
@@ -59,15 +60,24 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
         mTextViewHairColor = findViewById(R.id.text_view_hair_color);
 
         //textViews that show the value of each entry for the player
-        mTextViewPlayerName = findViewById(R.id.text_view_player_name);
-        mTextViewPlayerClass = findViewById(R.id.text_view_player_class);
-        mTextViewPlayerRace = findViewById(R.id.text_view_player_race);
-        mTextViewPlayerAge = findViewById(R.id.text_view_player_age);
-        mTextViewPlayerHeight = findViewById(R.id.text_view_player_height);
-        mTextViewPlayerWeight = findViewById(R.id.text_view_player_wieght);
-        mTextViewPlayerEyeColor = findViewById(R.id.text_view_player_eye_color);
-        mTextViewPlayerHairColor = findViewById(R.id.text_view_player_hair_color);
-        mTextViewPlayerMoney = findViewById(R.id.text_view_player_money);
+        mTextViewCurrentCharacterName = findViewById(R.id.text_view_player_name);
+        mTextViewCurrentCharacterClass = findViewById(R.id.text_view_player_class);
+        mTextViewCurrentCharacterRace = findViewById(R.id.text_view_player_race);
+        mTextViewCurrentCharacterAge = findViewById(R.id.text_view_player_age);
+        mTextViewCurrentCharacterHeight = findViewById(R.id.text_view_player_height);
+        mTextViewCurrentCharacterWeight = findViewById(R.id.text_view_player_wieght);
+        mTextViewCurrentCharacterEyeColor = findViewById(R.id.text_view_player_eye_color);
+        mTextViewCurrentCharacterHairColor = findViewById(R.id.text_view_player_hair_color);
+        mTextViewCurrentCharacterMoney = findViewById(R.id.text_view_player_money);
 
+        mTextViewCurrentCharacterName.setText(mCurrentCharacter.getName());
+        mTextViewCurrentCharacterClass.setText(mCurrentCharacter.getCharacterClass().getResId());
+        mTextViewCurrentCharacterRace.setText(mCurrentCharacter.getRace().getResId());
+        mTextViewCurrentCharacterAge.setText(String.valueOf(mCurrentCharacter.getAge()));
+        mTextViewCurrentCharacterHeight.setText(String.valueOf(mCurrentCharacter.getHeight()));
+        mTextViewCurrentCharacterWeight.setText(String.valueOf(mCurrentCharacter.getWeight()));
+        mTextViewCurrentCharacterEyeColor.setText(mCurrentCharacter.getEyeColor());
+        mTextViewCurrentCharacterHeight.setText(String.valueOf(mCurrentCharacter.getHeight()));
+        mTextViewCurrentCharacterWeight.setText(String.valueOf(mCurrentCharacter.getWeight()));
     }
 }

@@ -32,10 +32,10 @@
         <activity android:name=".BuyEquipmentActivity"/>
         <activity android:name=".BuyArmorActivity"/>
         <activity android:name=".DetailedCharacterSheetActivity"/>
-        <activity android:name=".BuyWeaponsActivity">
-        </activity>
-        <activity android:name=".Page1Activity">
-        </activity>
+        <activity android:name=".BuyWeaponsActivity"/>
+        <activity android:name=".Page1Activity"/>
+        <activity android:name=".Page2Activity"/>
+
     </application>
 
 </manifest>

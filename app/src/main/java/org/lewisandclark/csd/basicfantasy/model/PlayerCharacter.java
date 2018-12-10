@@ -34,6 +34,7 @@ public class PlayerCharacter {
     private int mXP;
     private Race mRace;
     private CharacterClass mPlayerClass;
+    private String mEyeColor;
 
     private int mStatRollCounter;
     private AttributeScore[] mStatArray = new AttributeScore[6]; //[STR,INT,WIS,DEX,CON,CHA]
@@ -85,18 +86,21 @@ public class PlayerCharacter {
         this.mRace = Race.HUMAN;
         this.mPlayerClass = CharacterClass.FIGHTER;
         this.mAge = 20;
+        this.mHeight = 76;
+        this.mWeight = 220;
         this.mLevel = 1;
         this.mXP = 0;
         this.mHitDie = 8;
-        this.mTotalHitPoints = 0;
-        this.mCurrentHitPoints = 0;
+        this.mTotalHitPoints = 8;
+        this.mCurrentHitPoints = 8;
+        this.mEyeColor = "Green";
 
         this.mStatRollCounter = 1;
-        this.mStatArray[STR.ordinal()] = new AttributeScore(15);
-        this.mStatArray[INT.ordinal()] = new AttributeScore(10);
+        this.mStatArray[STR.ordinal()] = new AttributeScore(18);
+        this.mStatArray[INT.ordinal()] = new AttributeScore(16);
         this.mStatArray[WIS.ordinal()] = new AttributeScore(9);
         this.mStatArray[DEX.ordinal()] = new AttributeScore(12);
-        this.mStatArray[CON.ordinal()] = new AttributeScore(12);
+        this.mStatArray[CON.ordinal()] = new AttributeScore(8);
         this.mStatArray[CHA.ordinal()] = new AttributeScore(5);
         this.autoCalc();
     }
@@ -211,6 +215,10 @@ public class PlayerCharacter {
         mSex = sex;
     }
 
+    public String getEyeColor() {return mEyeColor;}
+
+    public void setEyeColor(String eyeColor) {mEyeColor = eyeColor;}
+
     public int getAge() {
         return mAge;
     }
@@ -309,11 +317,11 @@ public class PlayerCharacter {
         mRace = race;
     }
 
-    public CharacterClass getPlayerClass() {
+    public CharacterClass getCharacterClass() {
         return mPlayerClass;
     }
 
-    public void setPlayerClass(CharacterClass aClass) {
+    public void setCharacterClass(CharacterClass aClass) {
         mPlayerClass = aClass;
     }
 
