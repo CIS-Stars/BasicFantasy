@@ -86,7 +86,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent" />
 
                     <TextView
@@ -132,7 +132,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -186,7 +186,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -232,7 +232,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -286,7 +286,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -332,7 +332,7 @@
                         tools:text="17" />
 
                     <View
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -364,24 +364,25 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
+                android:id="@+id/death_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="start"
                 android:text="@string/death_save"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_weight="9"
-                android:gravity="start"/>
+                android:textSize="18sp" />
 
 
             <TextView
                 android:id="@+id/death_save_target_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="17"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="17" />
 
         </TableRow>
 
@@ -397,24 +398,25 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
+                android:id="@+id/magic_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="start"
                 android:text="@string/magic_save"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_weight="9"
-                android:gravity="start"/>
+                android:textSize="18sp" />
 
 
             <TextView
                 android:id="@+id/magic_save_target_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="17"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="17" />
 
         </TableRow>
 
@@ -430,23 +432,24 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
+                android:id="@+id/paralysis_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="start"
                 android:text="@string/paralysis_save"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_weight="9"
-                android:gravity="start"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/paralysis_save_target_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="17"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="17" />
 
         </TableRow>
 
@@ -462,24 +465,25 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
+                android:id="@+id/dragon_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="start"
                 android:text="@string/dragon_save"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_weight="9"
-                android:gravity="start"/>
+                android:textSize="18sp" />
 
 
             <TextView
                 android:id="@+id/dragon_save_target_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="17"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="17" />
 
         </TableRow>
 
@@ -495,23 +499,24 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
+                android:id="@+id/spell_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="start"
                 android:text="@string/spell_save"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_weight="9"
-                android:gravity="start"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/spell_save_target_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="17"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="17" />
 
         </TableRow>
 

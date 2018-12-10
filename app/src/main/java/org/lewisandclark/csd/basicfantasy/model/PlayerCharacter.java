@@ -116,7 +116,7 @@ public class PlayerCharacter {
         }
         else{
             this.mTotalHitPoints += DieRoller.roll(this.mHitDie) +
-                    this.mStatArray[CON.ordinal()].getModifier();
+                    Integer.valueOf(this.mStatArray[CON.ordinal()].getModifier());
         }
         this.mCurrentHitPoints = this.mTotalHitPoints;
 
@@ -385,6 +385,8 @@ public class PlayerCharacter {
         return mDeathRayPoisonSave;
     }
 
+    public String getDeathRayPoisonSaveString() {return String.valueOf(mDeathRayPoisonSave);}
+
     public void setDeathRayPoisonSave(int deathRayPoisonSave) {
         mDeathRayPoisonSave = deathRayPoisonSave;
     }
@@ -400,6 +402,8 @@ public class PlayerCharacter {
     public int getWandSave() {
         return mWandSave;
     }
+
+    public String getWandSaveString() {return String.valueOf(mWandSave);}
 
     public void setWandSave(int wandSave) {
         mWandSave = wandSave;
@@ -417,6 +421,8 @@ public class PlayerCharacter {
         return mParalysisStoneSave;
     }
 
+    public String getParalysisStoneSaveString() {return String.valueOf(mParalysisStoneSave);}
+
     public void setParalysisStoneSave(int paralysisStoneSave) {
         mParalysisStoneSave = paralysisStoneSave;
     }
@@ -433,6 +439,8 @@ public class PlayerCharacter {
         return mDragonBreathSave;
     }
 
+    public String getDragonBreathSaveString() {return String.valueOf(mDragonBreathSave);}
+
     public void setDragonBreathSave(int dragonBreathSave) {
         mDragonBreathSave = dragonBreathSave;
     }
@@ -448,6 +456,8 @@ public class PlayerCharacter {
     public int getRodStaveSpellSave() {
         return mRodStaveSpellSave;
     }
+
+    public String getRodStaveSpellSaveString() {return String.valueOf(mRodStaveSpellSave);}
 
     public void setRodStaveSpellSave(int rodStaveSpellSave) {
         mRodStaveSpellSave = rodStaveSpellSave;

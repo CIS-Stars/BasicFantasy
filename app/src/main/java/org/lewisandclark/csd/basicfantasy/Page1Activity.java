@@ -9,6 +9,12 @@ import android.widget.TextView;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CHA;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.CON;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.DEX;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.INT;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.STR;
+import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 
 public class Page1Activity extends AppCompatActivity {
     private PlayerCharacter mCurrentCharacter;
@@ -26,7 +32,13 @@ public class Page1Activity extends AppCompatActivity {
     private TextView mTextViewWisdomScore;
     private TextView mTextViewWisdomMod;
     private TextView mTextViewCharismaScore;
-    private TextView mTextViewChrasismaMod;
+    private TextView mTextViewCharismaMod;
+
+    private TextView mTextViewDeathSaveScore;
+    private TextView mTextViewMagicSaveScore;
+    private TextView mTextViewParalysisSaveScore;
+    private TextView mTextViewDragonSaveScore;
+    private TextView mTextViewSpellSaveScore;
 
 
 
@@ -57,13 +69,34 @@ public class Page1Activity extends AppCompatActivity {
         mTextViewWisdomScore = findViewById(R.id.wisdom_score);
         mTextViewWisdomMod = findViewById(R.id.wisdom_mod);
         mTextViewCharismaScore = findViewById(R.id.charisma_score);
-        mTextViewChrasismaMod = findViewById(R.id.charisma_mod);
+        mTextViewCharismaMod = findViewById(R.id.charisma_mod);
+
+        mTextViewDeathSaveScore = findViewById(R.id.death_save_target_score);
+        mTextViewMagicSaveScore = findViewById(R.id.magic_save_target_score);
+        mTextViewParalysisSaveScore = findViewById(R.id.paralysis_save_target_score);
+        mTextViewDragonSaveScore = findViewById(R.id.dragon_save_target_score);
+        mTextViewSpellSaveScore = findViewById(R.id.spell_save_target_score);
+
 
         mTextViewCharacterName.setText(mCurrentCharacter.getName());
+        mTextViewCharacterClass.setText(mCurrentCharacter.getCharacterClass().toString());
+        mTextViewStrengthScore.setText(mCurrentCharacter.getStatArray()[STR.ordinal()].getScoreString());
+        mTextViewStrengthMod.setText(mCurrentCharacter.getStatArray()[STR.ordinal()].getModifierString());
+        mTextViewDexterityScore.setText(mCurrentCharacter.getStatArray()[DEX.ordinal()].getScoreString());
+        mTextViewDexterityMod.setText(mCurrentCharacter.getStatArray()[DEX.ordinal()].getModifierString());
+        mTextViewIntelligenceScore.setText(mCurrentCharacter.getStatArray()[INT.ordinal()].getScoreString());
+        mTextViewIntelligenceMod.setText(mCurrentCharacter.getStatArray()[INT.ordinal()].getModifierString());
+        mTextViewConstitutionScore.setText(mCurrentCharacter.getStatArray()[CON.ordinal()].getScoreString());
+        mTextViewConstitutionMod.setText(mCurrentCharacter.getStatArray()[CON.ordinal()].getModifierString());
+        mTextViewWisdomScore.setText(mCurrentCharacter.getStatArray()[WIS.ordinal()].getScoreString());
+        mTextViewWisdomMod.setText(mCurrentCharacter.getStatArray()[WIS.ordinal()].getModifierString());
+        mTextViewCharismaScore.setText(mCurrentCharacter.getStatArray()[CHA.ordinal()].getScoreString());
+        mTextViewCharismaMod.setText(mCurrentCharacter.getStatArray()[CHA.ordinal()].getModifierString());
 
-
-
-
-
+        mTextViewDeathSaveScore.setText(mCurrentCharacter.getDeathRayPoisonSaveString());
+        mTextViewMagicSaveScore.setText(mCurrentCharacter.getWandSaveString());
+        mTextViewParalysisSaveScore.setText(mCurrentCharacter.getParalysisStoneSaveString());
+        mTextViewDragonSaveScore.setText(mCurrentCharacter.getDragonBreathSaveString());
+        mTextViewSpellSaveScore.setText(mCurrentCharacter.getRodStaveSpellSaveString());
     }
 }
