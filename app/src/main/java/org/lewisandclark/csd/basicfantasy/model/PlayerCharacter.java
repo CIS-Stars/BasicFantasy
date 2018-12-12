@@ -94,6 +94,7 @@ public class PlayerCharacter {
         this.mTotalHitPoints = 8;
         this.mCurrentHitPoints = 8;
         this.mEyeColor = "Green";
+        this.mAbilityRoll = 18;
 
         this.mStatRollCounter = 1;
         this.mStatArray[STR.ordinal()] = new AttributeScore(18);

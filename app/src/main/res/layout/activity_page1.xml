@@ -353,7 +353,7 @@
             android:background="@color/black" />
 
         <TableRow
-            android:id="@+id/saving_throws_row1"
+            android:id="@+id/death_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -364,7 +364,6 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
-                android:id="@+id/death_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -387,7 +386,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/saving_throws_row2"
+            android:id="@+id/magic_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -398,7 +397,6 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
-                android:id="@+id/magic_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -421,7 +419,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/saving_throws_row3"
+            android:id="@+id/paralysis_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -432,7 +430,6 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
-                android:id="@+id/paralysis_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -454,7 +451,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/saving_throws_row4"
+            android:id="@+id/dragon_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -465,7 +462,6 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
-                android:id="@+id/dragon_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -488,7 +484,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/saving_throws_row5"
+            android:id="@+id/spell_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -499,7 +495,6 @@
             android:background="@drawable/customborder_saves">
 
             <TextView
-                android:id="@+id/spell_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
