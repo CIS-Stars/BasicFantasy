@@ -8,15 +8,12 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
-import org.lewisandclark.csd.basicfantasy.model.Attribute;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
@@ -29,6 +26,9 @@ import static org.lewisandclark.csd.basicfantasy.model.Attribute.STR;
 import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 
 public class Page1Activity extends AppCompatActivity {
+
+    static final String TAG = "Page1Activity";
+
     private PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewCharacterName;
@@ -46,12 +46,6 @@ public class Page1Activity extends AppCompatActivity {
     private TextView mTextViewCharismaScore;
     private TextView mTextViewCharismaMod;
 
-    private TextView mTextViewDeathSaveScore;
-    private TextView mTextViewMagicSaveScore;
-    private TextView mTextViewParalysisSaveScore;
-    private TextView mTextViewDragonSaveScore;
-    private TextView mTextViewSpellSaveScore;
-
     private LinearLayout mLayoutStrength;
     private LinearLayout mLayoutDexterity;
     private LinearLayout mLayoutIntelligence;
@@ -59,20 +53,20 @@ public class Page1Activity extends AppCompatActivity {
     private LinearLayout mLayoutWisdom;
     private LinearLayout mLayoutCharisma;
 
-    private TableRow mTableRowDeathSave;
-    private TableRow mTableRowMagicSave;
-    private TableRow mTableRowParalysisSave;
-    private TableRow mTableRowDragonSave;
-    private TableRow mTableRowSpellSave;
+    private TextView mLinearLayoutDeathSave;
+    private TextView mLinearLayoutMagicSave;
+    private TextView mLinearLayoutParalysisSave;
+    private TextView mLinearLayoutDragonSave;
+    private TextView mLinearLayoutSpellSave;
 
-
+    private TextView mTextViewLeftNavigate;
+    private TextView mTextViewRightNavigate;
 
     public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, Page1Activity.class);
         //Intent Extras go here
         return theIntent;
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,18 +97,14 @@ public class Page1Activity extends AppCompatActivity {
         mLayoutWisdom = findViewById(R.id.wisdom_layout);
         mLayoutCharisma = findViewById(R.id.charisma_layout);
 
-        mTableRowDeathSave = findViewById(R.id.death_save);
-        mTableRowMagicSave = findViewById(R.id.magic_save);
-        mTableRowParalysisSave = findViewById(R.id.paralysis_save);
-        mTableRowDragonSave = findViewById(R.id.dragon_save);
-        mTableRowSpellSave = findViewById(R.id.spell_save);
+        mLinearLayoutDeathSave = findViewById(R.id.death_save);
+        mLinearLayoutMagicSave = findViewById(R.id.magic_save);
+        mLinearLayoutParalysisSave = findViewById(R.id.paralysis_save);
+        mLinearLayoutDragonSave = findViewById(R.id.dragon_save);
+        mLinearLayoutSpellSave = findViewById(R.id.spell_save);
 
-        mTextViewDeathSaveScore = findViewById(R.id.death_save_target_score);
-        mTextViewMagicSaveScore = findViewById(R.id.magic_save_target_score);
-        mTextViewParalysisSaveScore = findViewById(R.id.paralysis_save_target_score);
-        mTextViewDragonSaveScore = findViewById(R.id.dragon_save_target_score);
-        mTextViewSpellSaveScore = findViewById(R.id.spell_save_target_score);
-
+        mTextViewLeftNavigate = findViewById(R.id.left_button);
+        mTextViewRightNavigate = findViewById(R.id.right_button);
 
         mTextViewCharacterName.setText(mCurrentCharacter.getName());
         mTextViewCharacterClass.setText(mCurrentCharacter.getCharacterClass().toString());
@@ -131,14 +121,7 @@ public class Page1Activity extends AppCompatActivity {
         mTextViewCharismaScore.setText(mCurrentCharacter.getStatArray()[CHA.ordinal()].getScoreString());
         mTextViewCharismaMod.setText(mCurrentCharacter.getStatArray()[CHA.ordinal()].getModifierString());
 
-        mTextViewDeathSaveScore.setText(mCurrentCharacter.getDeathRayPoisonSaveString());
-        mTextViewMagicSaveScore.setText(mCurrentCharacter.getWandSaveString());
-        mTextViewParalysisSaveScore.setText(mCurrentCharacter.getParalysisStoneSaveString());
-        mTextViewDragonSaveScore.setText(mCurrentCharacter.getDragonBreathSaveString());
-        mTextViewSpellSaveScore.setText(mCurrentCharacter.getRodStaveSpellSaveString());
-
-
-        mTableRowDeathSave.setOnClickListener(new View.OnClickListener(){
+        mLinearLayoutDeathSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 openDialog("Death Ray or Poison", mCurrentCharacter.getDeathRayPosionMod(),
@@ -146,7 +129,7 @@ public class Page1Activity extends AppCompatActivity {
             }
         });
 
-        mTableRowMagicSave.setOnClickListener(new View.OnClickListener(){
+        mLinearLayoutMagicSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 openDialog("Magic Wands", mCurrentCharacter.getWandMod(),
@@ -154,7 +137,7 @@ public class Page1Activity extends AppCompatActivity {
             }
         });
 
-        mTableRowParalysisSave.setOnClickListener(new View.OnClickListener(){
+        mLinearLayoutParalysisSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 openDialog("Paralysis or Turn to Stone", mCurrentCharacter.getParalysisStoneMod(),
@@ -162,7 +145,7 @@ public class Page1Activity extends AppCompatActivity {
             }
         });
 
-        mTableRowDragonSave.setOnClickListener(new View.OnClickListener(){
+        mLinearLayoutDragonSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 openDialog("Dragon Breath", mCurrentCharacter.getDragonBreathMod(),
@@ -171,7 +154,7 @@ public class Page1Activity extends AppCompatActivity {
         });
 
 
-        mTableRowSpellSave.setOnClickListener(new View.OnClickListener(){
+        mLinearLayoutSpellSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 openDialog("Rods, Staves, and Spells", mCurrentCharacter.getRodStaveSpellMod(),
@@ -227,8 +210,27 @@ public class Page1Activity extends AppCompatActivity {
             }
         });
 
+        mTextViewLeftNavigate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //open left screen
+                Intent i = Page2Activity.newIntent(Page1Activity.this);
+                startActivity(i);
+                overridePendingTransition(R.anim.left_to_right_in, R.anim.left_to_right_out);
+            }
+        });
 
+        mTextViewRightNavigate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //open right screen
+                Intent i = Page2Activity.newIntent(Page1Activity.this);
+                startActivity(i);
+                overridePendingTransition(R.anim.right_to_left_in, R.anim.right_to_left_out);
+            }
+        });
     }
+
 
     public void openDialog(String title, int mod, int target){
 

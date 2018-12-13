@@ -76,4 +76,7 @@
     <string name="weapon3">Weapon 3</string>
     <string name="weapon4">Weapon 4</string>
     <string name="weapon5">Weapon 5</string>
+    <string name="left_arrow"><![CDATA[<-------]]></string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
 </resources>
