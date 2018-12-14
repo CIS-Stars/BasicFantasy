@@ -3,23 +3,22 @@ package org.lewisandclark.csd.basicfantasy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
+import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.lewisandclark.csd.basicfantasy.model.Armor;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.model.Shield;
 import org.lewisandclark.csd.basicfantasy.model.Weapon;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<>();
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     public static ArrayList<Item> sItems = new ArrayList<>();
     public static ArrayList<Armor> sArmors = new ArrayList<>();
     public static ArrayList<Shield> sShields = new ArrayList<>();
@@ -27,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public static int sCurrentCharacterIndex;
 
-    private Spinner mCharacterListSpinner;
+    private Button mChooseCharacterButton;
     private Button mCreateCharacterButton;
     private Button mOpenCharacterButton;
     private Button mDeleteCharacterButton;
@@ -42,24 +41,24 @@ public class HomeActivity extends AppCompatActivity {
         sArmors.addAll(buildArmorList());
         sShields.addAll(buildShieldList());
         sWeapons.addAll(buildWeaponList());
-        sCurrentCharacterIndex = 0;
-        sCharacters.add(new PlayerCharacter());
-
-        List<String > characterList = new ArrayList<>();
-        for(PlayerCharacter character : sCharacters ){
-            characterList.add(character.getName());
+        if (sCharacters.sizeOf() == 0) {
+            sCurrentCharacterIndex = 0;
+            sCharacters.addCharacter(new PlayerCharacter());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, characterList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mCharacterListSpinner = findViewById(R.id.character_list_spinner);
-        mCharacterListSpinner.setAdapter(adapter);
+        mChooseCharacterButton = (Button) findViewById(R.id.choose_button);
+        mChooseCharacterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent theIntent = ChooseCurrentCharacterActivity.newIntent(HomeActivity.this);
+                startActivity(theIntent);
+            }
+        });
 
         mCreateCharacterButton = findViewById(R.id.create_button);
         mCreateCharacterButton.setOnClickListener(view -> {
-            sCurrentCharacterIndex = sCharacters.size();
-            sCharacters.add(new PlayerCharacter(sCharacters.size()));
+            sCurrentCharacterIndex = sCharacters.sizeOf();
+            sCharacters.addCharacter(new PlayerCharacter(sCharacters.sizeOf()));
             Intent theIntent = RollAttributesActivity
                     .newIntent(HomeActivity.this);
             startActivity(theIntent);

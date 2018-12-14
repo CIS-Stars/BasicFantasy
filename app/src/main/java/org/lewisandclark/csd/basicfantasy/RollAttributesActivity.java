@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import org.lewisandclark.csd.basicfantasy.model.Attribute;
 import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
 import java.util.HashMap;
@@ -30,6 +31,8 @@ import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 public class RollAttributesActivity extends AppCompatActivity {
 
     public static final String TAG = "RollAttributesActivity";
+
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
 
     private Button mRollStats;
     private Button mAcceptStats;
@@ -73,7 +76,7 @@ public class RollAttributesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_roll_attributes);
 
         mRollCounterTextView = findViewById(R.id.roll_counter);
-        mRollCounterTextView.setText(Integer.toString(HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
+        mRollCounterTextView.setText(Integer.toString(sCharacters.getPlayerCharacter(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
 
         mStrEditText = findViewById(R.id.str_score);
         mStrEditText.setText(Integer.toString(mStatArray[STR.ordinal()].getScore()));
@@ -212,8 +215,8 @@ public class RollAttributesActivity extends AppCompatActivity {
         mRollStats = findViewById(R.id.roll_stats_button);
         mRollStats.setOnClickListener(view -> {
             //increment the counter
-            HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).incrementStatRollCounter();
-            mRollCounterTextView.setText(Integer.toString(HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
+            sCharacters.getPlayerCharacter(HomeActivity.sCurrentCharacterIndex).incrementStatRollCounter();
+            mRollCounterTextView.setText(Integer.toString(sCharacters.getPlayerCharacter(HomeActivity.sCurrentCharacterIndex).getStatRollCounter()));
 
             //disable editing
             mStrEditText.setInputType(InputType.TYPE_NULL);
@@ -245,7 +248,7 @@ public class RollAttributesActivity extends AppCompatActivity {
             Log.d(TAG, "AcceptStats clicked.");
 
             if(statsAreValid()) {
-                HomeActivity.sCharacters.get(HomeActivity.sCurrentCharacterIndex).setStatArray(mStatArray);
+                sCharacters.getPlayerCharacter(HomeActivity.sCurrentCharacterIndex).setStatArray(mStatArray);
 
                 Intent intent = ChooseRaceActivity.newIntent(RollAttributesActivity.this);
                 startActivity(intent);

@@ -10,12 +10,14 @@ import android.widget.RadioGroup;
 
 import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
 import org.lewisandclark.csd.basicfantasy.model.CharacterClass;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.Race;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class ChooseClassActivity extends AppCompatActivity {
+
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     private RadioGroup mRadioClassGroup;
 
     private RadioButton mRadioClericButton;
@@ -46,8 +48,8 @@ public class ChooseClassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_class);
 
-        mStatArray = sCharacters.get(sCurrentCharacterIndex).getStatArray();
-        mRace = sCharacters.get(sCurrentCharacterIndex).getRace();
+        mStatArray = sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getStatArray();
+        mRace = sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getRace();
 
         mRadioClassGroup = findViewById(R.id.radio_class_group);
 
@@ -101,14 +103,14 @@ public class ChooseClassActivity extends AppCompatActivity {
 
             }
             // Elf and Halfling can only have max hitdie of 6
-            if ((sCharacters.get(sCurrentCharacterIndex).getRace()==Race.ELF ||
-                    sCharacters.get(sCurrentCharacterIndex).getRace()==Race.HALFLING)
+            if ((sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getRace()==Race.ELF ||
+                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getRace()==Race.HALFLING)
                     && mNewHitDie > 6){
                 mNewHitDie = 6;
             }
 
-            sCharacters.get(sCurrentCharacterIndex).setCharacterClass(mNewClass);
-            sCharacters.get(sCurrentCharacterIndex).setHitDie(mNewHitDie);
+            sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setCharacterClass(mNewClass);
+            sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setHitDie(mNewHitDie);
 
             Intent intent = EnterPersonalInfoActivity.newIntent(ChooseClassActivity.this);
             startActivity(intent);
