@@ -10,3 +10,4 @@
 instapk.properties
 .idea/instapk.xml
 instapk.log*
+*.ser
