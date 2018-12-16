@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class CharacterList {
     private static CharacterList sCharacterList;
@@ -37,4 +36,6 @@ public class CharacterList {
     public int sizeOf(){
         return mPlayerCharacters.size();
     }
+
+    public List<PlayerCharacter> getList() {return mPlayerCharacters;}
 }

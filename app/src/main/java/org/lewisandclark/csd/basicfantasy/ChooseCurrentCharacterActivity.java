@@ -2,8 +2,8 @@ package org.lewisandclark.csd.basicfantasy;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 
 import org.lewisandclark.csd.basicfantasy.model.Armor;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.model.Shield;
@@ -22,7 +23,7 @@ import java.util.List;
 public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
 
-    public static ArrayList<PlayerCharacter> sCharacters = new ArrayList<>();
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     public static ArrayList<Item> sItems = new ArrayList<>();
     public static ArrayList<Armor> sArmors = new ArrayList<>();
     public static ArrayList<Shield> sShields = new ArrayList<>();
@@ -48,7 +49,7 @@ public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
                 //Populate the ScrollView.
         mCharactersView = findViewById(R.id.characters_layout);
-        for (PlayerCharacter character: sCharacters){
+        for (PlayerCharacter character: sCharacters.getList()){
             Log.d("CHARACTER", "found one");
             CheckedTextView v = new CheckedTextView(this);
             v.setText(String.format("%s:", character.getName()));
