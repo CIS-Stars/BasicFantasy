@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
@@ -13,6 +14,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 @SuppressWarnings("UnnecessaryLocalVariable")
 public class DetailedCharacterSheetActivity extends AppCompatActivity {
 
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewName;
@@ -47,7 +49,7 @@ public class DetailedCharacterSheetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_charactersheet);
 
-        mCurrentCharacter = sCharacters.get(sCurrentCharacterIndex);
+        mCurrentCharacter = sCharacters.getPlayerCharacter(sCurrentCharacterIndex);
 
         //textViews that are titles for each entry
         mTextViewName = findViewById(R.id.text_view_name);

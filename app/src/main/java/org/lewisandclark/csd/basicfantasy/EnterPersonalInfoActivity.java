@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class EnterPersonalInfoActivity extends AppCompatActivity {
@@ -21,6 +21,8 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
             "Purple", "Yellow", "Copper", "Green"};
     private final String[] HAIR_COLOR = {"Blonde", "Blue", "Brown", "Black", "Red", "Gray","Yellow",
             "Copper", "Green"};
+
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
 
     private Button mClearButton;
     private Button mSaveButton;
@@ -93,17 +95,17 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
             try {
 
                 //count 0
-                sCharacters.get(sCurrentCharacterIndex).setName(mEditName.getText().toString());
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditName.getText().toString());
                 count++; //count 1
-                sCharacters.get(sCurrentCharacterIndex).setAge(Integer.parseInt(mEditAge.getText().toString()));
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setAge(Integer.parseInt(mEditAge.getText().toString()));
                 count++;
-                sCharacters.get(sCurrentCharacterIndex).setHeight(Integer.parseInt(mEditHeight.getText().toString()));
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setHeight(Integer.parseInt(mEditHeight.getText().toString()));
                 count++;
-                sCharacters.get(sCurrentCharacterIndex).setWeight(Integer.parseInt(mEditWeight.getText().toString()));
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setWeight(Integer.parseInt(mEditWeight.getText().toString()));
                 count++;
-                sCharacters.get(sCurrentCharacterIndex).setName(mEditEyeColor.getText().toString());
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditEyeColor.getText().toString());
                 count++;
-                sCharacters.get(sCurrentCharacterIndex).setName(mEditHairColor.getText().toString());
+                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditHairColor.getText().toString());
                 count++;
 
                 Intent intent = BuyEquipmentActivity.newIntent(EnterPersonalInfoActivity.this);

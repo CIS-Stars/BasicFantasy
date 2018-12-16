@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
@@ -29,6 +30,7 @@ public class Page1Activity extends AppCompatActivity {
 
     static final String TAG = "Page1Activity";
 
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     private PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewCharacterName;
@@ -73,7 +75,7 @@ public class Page1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
 
-        mCurrentCharacter = sCharacters.get(sCurrentCharacterIndex);
+        mCurrentCharacter = sCharacters.getPlayerCharacter(sCurrentCharacterIndex);
 
         mTextViewCharacterName = findViewById(R.id.character_name);
         mTextViewCharacterClass = findViewById(R.id.character_class_and_level);

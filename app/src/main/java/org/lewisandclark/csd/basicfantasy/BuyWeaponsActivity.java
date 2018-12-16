@@ -14,18 +14,20 @@ import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
+
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sWeapons;
 @SuppressLint("DefaultLocale")
 public class BuyWeaponsActivity extends AppCompatActivity {
 
+    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     private LinearLayout mWeaponsLayout;
     private List<CheckedTextView> mWeaponCheckedTextViews = new ArrayList<>();
     private Button mCheckoutButton;
@@ -43,6 +45,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_buy_weapons);
 
         mSubtotalView = findViewById(R.id.weapon_subtotal_view);
@@ -69,7 +72,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
         mCheckoutButton.setOnClickListener(view -> {
             for(int i = 0; i< mWeaponCheckedTextViews.size(); i++){
                 if(mWeaponCheckedTextViews.get(i).isChecked()){
-                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sWeapons.get(i));
+                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).addEquipment(sWeapons.get(i));
                 }
             }
             logIt();
@@ -106,7 +109,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
     }
 
     private void logIt() {
-        for (Item item: sCharacters.get(sCurrentCharacterIndex).getEquipmentList()) {
+        for (Item item: sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getEquipmentList()) {
             Log.d("EQUIPMENT:", getString(item.getNameID()));
 
         }
