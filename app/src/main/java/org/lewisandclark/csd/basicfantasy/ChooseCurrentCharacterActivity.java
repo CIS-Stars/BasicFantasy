@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckedTextView;
-import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import org.lewisandclark.csd.basicfantasy.model.Armor;
 import org.lewisandclark.csd.basicfantasy.model.CharacterList;
@@ -31,8 +33,9 @@ public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
     public static int sCurrentCharacterIndex;
 
-    private LinearLayout mCharactersView;
-    private List<CheckedTextView> mCharactersCheckedTextViews = new ArrayList<>();
+    private RadioGroup mCharactersGroup;
+    private List<RadioButton> mCharacterRadioButtons = new ArrayList<>();
+    private Button  mAcceptButton;
 
     public static Intent newIntent(Context packageContext){
         Intent theIntent = new Intent(packageContext, ChooseCurrentCharacterActivity.class);
@@ -47,18 +50,17 @@ public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
         Log.d("START", "Choose Current Character");
 
-                //Populate the ScrollView.
-        mCharactersView = findViewById(R.id.characters_layout);
+        //Populate the ScrollView.
+        mCharactersGroup = findViewById(R.id.characters_radiogroup);
         for (PlayerCharacter character: sCharacters.getList()){
             Log.d("CHARACTER", "found one");
-            CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:", character.getName()));
-            v.setChecked(false);
-            v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-            v.setOnClickListener(view -> onCheckTextClick(v));
-            mCharactersCheckedTextViews.add(v);
-            mCharactersView.addView(v);
+            RadioButton rb = new RadioButton(this);
+            rb.setText(String.format("%s:", character.getName()));
+            rb.setChecked(false);
+            rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+            mCharactersGroup.addView(rb);
         }
+
 
         for (Weapon weapon: sWeapons){
             Log.d("WEAPON", "Found one");
