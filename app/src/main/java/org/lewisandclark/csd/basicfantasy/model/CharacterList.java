@@ -30,6 +30,8 @@ public class CharacterList {
     }
 
     public void addCharacter(PlayerCharacter newOne){
+        int ID = mPlayerCharacters.size();
+        newOne.setID(ID);
         mPlayerCharacters.add(newOne);
     }
 

@@ -106,6 +106,35 @@ public class PlayerCharacter {
         this.autoCalc();
     }
 
+    /**
+     * Other Generic Constructor for testing
+     */
+    public PlayerCharacter(String name){
+        this.mName = name;
+        this.mSex = Gender.FEMALE;
+        this.mRace = Race.ELF;
+        this.mPlayerClass = CharacterClass.MAGIC_USER;
+        this.mAge = 120;
+        this.mHeight = 65;
+        this.mWeight = 100;
+        this.mLevel = 1;
+        this.mXP = 0;
+        this.mHitDie = 4;
+        this.mTotalHitPoints = 0;
+        this.mCurrentHitPoints = 0;
+        this.mEyeColor = "Blue";
+        this.mAbilityRoll = 18;
+
+        this.mStatRollCounter = 1;
+        this.mStatArray[STR.ordinal()] = new AttributeScore(9);
+        this.mStatArray[INT.ordinal()] = new AttributeScore(17);
+        this.mStatArray[WIS.ordinal()] = new AttributeScore(12);
+        this.mStatArray[DEX.ordinal()] = new AttributeScore(15);
+        this.mStatArray[CON.ordinal()] = new AttributeScore(11);
+        this.mStatArray[CHA.ordinal()] = new AttributeScore(12);
+        this.autoCalc();
+    }
+
     private void autoCalc(){
         int[] saveArray;
         //total hit points

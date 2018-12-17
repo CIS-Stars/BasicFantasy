@@ -11,9 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.lewisandclark.csd.basicfantasy.model.CharacterList;
+import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
-
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class EnterPersonalInfoActivity extends AppCompatActivity {
 
@@ -91,22 +90,24 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
 
         mSaveButton = findViewById(R.id.save_info_button);
         mSaveButton.setOnClickListener(view -> {
-            int count =0;
+            int count = sCharacters.getList().size();
+            PlayerCharacter newOne = new PlayerCharacter(count);
             try {
 
                 //count 0
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditName.getText().toString());
+                newOne.setName(mEditName.getText().toString());
                 count++; //count 1
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setAge(Integer.parseInt(mEditAge.getText().toString()));
+                newOne.setAge(Integer.parseInt(mEditAge.getText().toString()));
                 count++;
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setHeight(Integer.parseInt(mEditHeight.getText().toString()));
+                newOne.setHeight(Integer.parseInt(mEditHeight.getText().toString()));
                 count++;
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setWeight(Integer.parseInt(mEditWeight.getText().toString()));
+                newOne.setWeight(Integer.parseInt(mEditWeight.getText().toString()));
                 count++;
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditEyeColor.getText().toString());
+                newOne.setName(mEditEyeColor.getText().toString());
                 count++;
-                sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setName(mEditHairColor.getText().toString());
+                newOne.setName(mEditHairColor.getText().toString());
                 count++;
+                sCharacters.addCharacter(newOne);
 
                 Intent intent = BuyEquipmentActivity.newIntent(EnterPersonalInfoActivity.this);
                 count++;

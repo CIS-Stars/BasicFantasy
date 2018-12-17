@@ -8,7 +8,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -24,22 +23,22 @@ import java.util.List;
 
 public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
-
     private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
     public static ArrayList<Item> sItems = new ArrayList<>();
     public static ArrayList<Armor> sArmors = new ArrayList<>();
     public static ArrayList<Shield> sShields = new ArrayList<>();
     public static ArrayList<Weapon> sWeapons = new ArrayList<>();
 
-    public static int sCurrentCharacterIndex;
+    public int sCurrentCharacterIndex;
 
     private RadioGroup mCharactersGroup;
     private List<RadioButton> mCharacterRadioButtons = new ArrayList<>();
     private Button  mAcceptButton;
 
-    public static Intent newIntent(Context packageContext){
+    public static Intent newIntent(Context packageContext, int index){
         Intent theIntent = new Intent(packageContext, ChooseCurrentCharacterActivity.class);
         //Intent Extras go here
+        theIntent.putExtra("ChooseCurrentCharacterActivityIndex", index);
         return theIntent;
     }
 
@@ -49,6 +48,9 @@ public class ChooseCurrentCharacterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_current_character);
 
         Log.d("START", "Choose Current Character");
+        sCurrentCharacterIndex =
+                getIntent().getIntExtra("ChooseCurrentCharacterActivityIndex", 0);
+
 
         //Populate the ScrollView.
         mCharactersGroup = findViewById(R.id.characters_radiogroup);
@@ -61,23 +63,19 @@ public class ChooseCurrentCharacterActivity extends AppCompatActivity {
             mCharactersGroup.addView(rb);
         }
 
+        mAcceptButton = findViewById(R.id.character_accept_button);
+        mAcceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sCurrentCharacterIndex = (mCharactersGroup.getCheckedRadioButtonId())-1;
+                Log.d("CHOOSE_C_C",  "Current Index: " + Integer.toString(sCurrentCharacterIndex));
+                Intent theIntent =
+                        HomeActivity.newIntent(ChooseCurrentCharacterActivity.this,
+                                sCurrentCharacterIndex);
+                startActivity(theIntent);
+            }
+        });
 
-        for (Weapon weapon: sWeapons){
-            Log.d("WEAPON", "Found one");
-        }
     }
 
-    public boolean onCheckTextClick(View view){
-        CheckedTextView v = (CheckedTextView) view;
-        if(v.isChecked()){
-            v.setChecked(false);
-            v.setBackgroundColor(getResources().getColor(R.color.white));
-        }
-        else{
-            v.setChecked(true);
-            v.setBackgroundColor(getResources().getColor(R.color.lime));
-
-        }
-        return true;
-    }
 }
