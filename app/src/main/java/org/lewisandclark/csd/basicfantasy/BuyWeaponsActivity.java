@@ -27,7 +27,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.sWeapons;
 @SuppressLint("DefaultLocale")
 public class BuyWeaponsActivity extends AppCompatActivity {
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private LinearLayout mWeaponsLayout;
     private List<CheckedTextView> mWeaponCheckedTextViews = new ArrayList<>();
     private Button mCheckoutButton;

@@ -3,18 +3,25 @@ package org.lewisandclark.csd.basicfantasy;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
+import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
+
+import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class Page2Activity extends AppCompatActivity {
 
     private TextView mTextViewLeftNavigate;
     private TextView mTextViewRightNavigate;
+    private TextView mHPMaxScore;
+    private TextView mHPCurrentScore;
+    private TextView mACScore;
+
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
+    private PlayerCharacter mCurrentCharacter;
 
 
     public static Intent newIntent(Context packageContext) {
@@ -27,6 +34,11 @@ public class Page2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2);
+
+        mCurrentCharacter = sCharacters.getPlayerCharacter(sCurrentCharacterIndex);
+        mHPMaxScore.setText(Integer.toString(mCurrentCharacter.getTotalHitPoints()));
+        mHPCurrentScore.setText(Integer.toString(mCurrentCharacter.getCurrentHitPoints()));
+        mACScore.setText(Integer.toString(mCurrentCharacter.getArmorClass()));
 
         mTextViewLeftNavigate = findViewById(R.id.left_button);
         mTextViewRightNavigate = findViewById(R.id.right_button);

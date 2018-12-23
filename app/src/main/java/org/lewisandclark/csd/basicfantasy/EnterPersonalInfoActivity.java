@@ -21,7 +21,7 @@ public class EnterPersonalInfoActivity extends AppCompatActivity {
     private final String[] HAIR_COLOR = {"Blonde", "Blue", "Brown", "Black", "Red", "Gray","Yellow",
             "Copper", "Green"};
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
 
     private Button mClearButton;
     private Button mSaveButton;

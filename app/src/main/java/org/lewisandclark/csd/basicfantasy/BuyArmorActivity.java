@@ -29,7 +29,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.sShields;
 
 public class BuyArmorActivity extends AppCompatActivity {
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private LinearLayout mArmorLayout;
     private List<CheckedTextView> mArmorCheckedTextViews = new ArrayList<>();
     private List<CheckedTextView> mShieldCheckedTextViews = new ArrayList<>();

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import org.lewisandclark.csd.basicfantasy.model.Armor;
 import org.lewisandclark.csd.basicfantasy.model.CharacterList;
+import org.lewisandclark.csd.basicfantasy.model.EquipmentDatabase;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 import org.lewisandclark.csd.basicfantasy.model.Shield;
@@ -28,11 +29,8 @@ public class HomeActivity extends AppCompatActivity {
         return theIntent;
     }
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
-    public static ArrayList<Item> sItems = new ArrayList<>();
-    public static ArrayList<Armor> sArmors = new ArrayList<>();
-    public static ArrayList<Shield> sShields = new ArrayList<>();
-    public static ArrayList<Weapon> sWeapons = new ArrayList<>();
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
+    private EquipmentDatabase mEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
 
     public static int sCurrentCharacterIndex;
 
@@ -62,6 +60,9 @@ public class HomeActivity extends AppCompatActivity {
             Log.d("HOME", "Size is Zero.");
             sCharacters.addCharacter(new PlayerCharacter());
             sCharacters.addCharacter(new PlayerCharacter("Marcia of Xant"));
+            mCurrentCharacter = sCharacters.getPlayerCharacter(0);
+            mCurrentCharacter.addEquipment(sWeapons.);
+            sCharacters.updateCharacter(mCurrentCharacter,0);
         }
 
         Log.d("HOME", "Current character index: " + Integer.toString(sCurrentCharacterIndex));

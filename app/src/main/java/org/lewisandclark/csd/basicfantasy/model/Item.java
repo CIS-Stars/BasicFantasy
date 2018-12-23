@@ -90,4 +90,5 @@ public class Item {
     public void setEquipped(boolean equipped) {
         mEquipped = equipped;
     }
+
 }

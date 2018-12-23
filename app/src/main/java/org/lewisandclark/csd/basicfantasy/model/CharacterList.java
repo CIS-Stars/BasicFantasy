@@ -9,7 +9,7 @@ public class CharacterList {
     private static CharacterList sCharacterList;
     private List<PlayerCharacter> mPlayerCharacters;
 
-    public static CharacterList getPlayerCharacter(Context context){
+    public static CharacterList getPlayerCharacterList(Context context){
         if (sCharacterList == null){
             sCharacterList = new CharacterList(context);
         }
@@ -33,6 +33,10 @@ public class CharacterList {
         int ID = mPlayerCharacters.size();
         newOne.setID(ID);
         mPlayerCharacters.add(newOne);
+    }
+
+    public void updateCharacter(PlayerCharacter currentOne, int currentOneIndex){
+        mPlayerCharacters.set(currentOneIndex, currentOne);
     }
 
     public int sizeOf(){

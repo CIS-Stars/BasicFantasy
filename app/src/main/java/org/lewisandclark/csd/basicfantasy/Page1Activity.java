@@ -30,7 +30,7 @@ public class Page1Activity extends AppCompatActivity {
 
     static final String TAG = "Page1Activity";
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewCharacterName;

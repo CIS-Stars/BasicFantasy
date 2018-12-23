@@ -17,7 +17,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterI
 
 public class ChooseRaceActivity extends AppCompatActivity {
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private AttributeScore[] mStatArray;
     private Race mNewRace;
 

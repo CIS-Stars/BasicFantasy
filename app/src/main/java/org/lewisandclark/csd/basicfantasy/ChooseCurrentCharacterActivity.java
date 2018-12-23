@@ -23,7 +23,7 @@ import java.util.List;
 
 public class ChooseCurrentCharacterActivity extends AppCompatActivity {
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     public static ArrayList<Item> sItems = new ArrayList<>();
     public static ArrayList<Armor> sArmors = new ArrayList<>();
     public static ArrayList<Shield> sShields = new ArrayList<>();

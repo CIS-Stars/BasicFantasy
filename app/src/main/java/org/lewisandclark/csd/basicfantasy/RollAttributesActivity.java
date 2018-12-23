@@ -32,7 +32,7 @@ public class RollAttributesActivity extends AppCompatActivity {
 
     public static final String TAG = "RollAttributesActivity";
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
 
     private Button mRollStats;
     private Button mAcceptStats;

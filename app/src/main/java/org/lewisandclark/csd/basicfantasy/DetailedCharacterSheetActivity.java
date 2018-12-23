@@ -14,7 +14,7 @@ import static org.lewisandclark.csd.basicfantasy.HomeActivity.*;
 @SuppressWarnings("UnnecessaryLocalVariable")
 public class DetailedCharacterSheetActivity extends AppCompatActivity {
 
-    private CharacterList sCharacters = CharacterList.getPlayerCharacter(this);
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     PlayerCharacter mCurrentCharacter;
 
     private TextView mTextViewName;
