@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.lewisandclark.csd.basicfantasy.model.CharacterList;
+import org.lewisandclark.csd.basicfantasy.model.EquipmentDatabase;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.Weapon;
 
@@ -23,11 +24,12 @@ import java.util.List;
 
 
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sWeapons;
+
 @SuppressLint("DefaultLocale")
 public class BuyWeaponsActivity extends AppCompatActivity {
 
     private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
+    private EquipmentDatabase sEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
     private LinearLayout mWeaponsLayout;
     private List<CheckedTextView> mWeaponCheckedTextViews = new ArrayList<>();
     private Button mCheckoutButton;
@@ -57,10 +59,10 @@ public class BuyWeaponsActivity extends AppCompatActivity {
 
         //Populate the ScrollView.  First with melee weapons, then ranged, then ammo
         mWeaponsLayout = findViewById(R.id.weapons_layout);
-        for (Weapon item : sWeapons) {
+        for (Weapon item : sEquipmentDatabase.getWeaponList()) {
             Log.d("WEAPON", "found one");
             CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:     %.1fgp", getString(item.getNameID()), item.getCostInGP()));
+            v.setText(String.format("%s:     %.1fgp", item.getNameID(), item.getCostInGP()));
             v.setChecked(false);
             v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
             v.setOnClickListener(view -> onCheckTextClick(v));
@@ -72,7 +74,8 @@ public class BuyWeaponsActivity extends AppCompatActivity {
         mCheckoutButton.setOnClickListener(view -> {
             for(int i = 0; i< mWeaponCheckedTextViews.size(); i++){
                 if(mWeaponCheckedTextViews.get(i).isChecked()){
-                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).addEquipment(sWeapons.get(i));
+                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).
+                            addEquipment(sEquipmentDatabase.getEquipment((String) mWeaponCheckedTextViews.get(i).getText()));
                 }
             }
             logIt();

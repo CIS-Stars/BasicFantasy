@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.EquipmentDatabase;
+import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.PlayerCharacter;
 
 public class HomeActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
-    private EquipmentDatabase mEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
+    private EquipmentDatabase sEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
 
     public static int sCurrentCharacterIndex;
 
@@ -45,6 +46,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Log.d("HOME","Character Array is size: " +
                 sCharacters.getList().size());
+        Item testItem = sEquipmentDatabase.getEquipment("Hand Axe");
+        Log.d("EQUIPMENT", testItem.getNameID());
         sCurrentCharacterIndex =
                 getIntent().getIntExtra("HomeActivityIndex", 0);
 

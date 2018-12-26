@@ -1,6 +1,5 @@
 package org.lewisandclark.csd.basicfantasy.model;
 
-import org.lewisandclark.csd.basicfantasy.R;
 import org.lewisandclark.csd.basicfantasy.utils.DieRoller;
 
 /**
@@ -19,7 +18,7 @@ public class Weapon extends Item {
     private int mLongRange;
 
     public Weapon(){
-        super(R.string.fists, "", 0, 0, 1);
+        super("Fists", "", 0, 0, 1);
         mAttackBonus = 0;
         mDamageDie = 3;
         mSecondAttackBonus = 0;
@@ -31,7 +30,7 @@ public class Weapon extends Item {
         mLongRange = 0;
     }
 
-    public Weapon(int nameID, double costInGP, double weight,int damageDie, int quantity,
+    public Weapon(String nameID, double costInGP, double weight,int damageDie, int quantity,
                  int AB, int SecondAB, String ABTarget, boolean twoHand, boolean ranged,
                   int shortRange, int mediumRange, int longRange, String formalName) {
         super(nameID, formalName, weight, costInGP, quantity);

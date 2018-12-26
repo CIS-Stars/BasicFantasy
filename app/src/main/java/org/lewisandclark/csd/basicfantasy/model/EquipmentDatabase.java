@@ -2,8 +2,6 @@ package org.lewisandclark.csd.basicfantasy.model;
 
 import android.content.Context;
 
-import org.lewisandclark.csd.basicfantasy.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,14 +32,58 @@ public class EquipmentDatabase {
         mWeaponList.addAll(buildWeaponList());
     }
 
+    public Item getEquipment(String itemName){
+
+        for (Item item: mItemList) {
+            if (itemName.equalsIgnoreCase(item.getNameID())) {
+                return item;
+            }
+        }
+
+        for (Item item: mArmorList){
+            if(itemName.equalsIgnoreCase(item.getNameID())){
+                return item;
+            }
+        }
+
+        for (Item item: mShieldList){
+            if(itemName.equalsIgnoreCase(item.getNameID())){
+                return item;
+            }
+        }
+
+        for (Item item: mWeaponList){
+            if(itemName.equalsIgnoreCase(item.getNameID())){
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public List<Armor> getArmorList() {
+        return mArmorList;
+    }
+
+    public List<Item> getItemList() {
+        return mItemList;
+    }
+
+    public List<Weapon> getWeaponList() {
+        return mWeaponList;
+    }
+
+    public List<Shield> getShieldList() {
+        return mShieldList;
+    }
+
     private ArrayList<Shield> buildShieldList() {
         ArrayList<Shield> list = new ArrayList<>();
 
-        list.add(new Shield(R.string.buckler, "", 2, 5, 1,
+        list.add(new Shield("Buckler", "", 2, 5, 1,
                 1, 0, 0, 0));
-        list.add(new Shield(R.string.medium, "", 5, 7, 1,
+        list.add(new Shield("Medium Shield", "", 5, 7, 1,
                 1, 1, 0, 0));
-        list.add(new Shield(R.string.tower, "", 12, 15, 1,
+        list.add(new Shield("Tower Shield", "", 12, 15, 1,
                 1, 3, 0, 0));
 
         return list;
@@ -50,17 +92,17 @@ public class EquipmentDatabase {
     private ArrayList<Armor> buildArmorList() {
         ArrayList<Armor> armorList = new ArrayList<>();
 
-        armorList.add(new Armor(R.string.padded,"",10,15,1,
+        armorList.add(new Armor("Padded","",10,15,1,
                 12,12,0,0));
-        armorList.add(new Armor(R.string.hide,"",30,10,1,
+        armorList.add(new Armor("Hide","",30,10,1,
                 13,13,0,0));
-        armorList.add(new Armor(R.string.leather,"",15,20,1,
+        armorList.add(new Armor("Leather","",15,20,1,
                 13,13,0,0));
-        armorList.add(new Armor(R.string.studded,"",25,30,1,
+        armorList.add(new Armor("Studded Leather","",25,30,1,
                 14,14,0,0));
-        armorList.add(new Armor(R.string.ring_mail,"",30,25,1,
+        armorList.add(new Armor("Ring Mail","",30,25,1,
                 14,14,0,0));
-        armorList.add(new Armor(R.string.brigandine,"",30,80,1,
+        /*armorList.add(new Armor(R.string.brigandine,"",30,80,1,
                 15,15,0,0));
         armorList.add(new Armor(R.string.chain_mail,"",40,60,1,
                 15,15,0,0));
@@ -75,7 +117,7 @@ public class EquipmentDatabase {
         armorList.add(new Armor(R.string.field_plate,"",70,500,1,
                 18,18,0,0));
         armorList.add(new Armor(R.string.full_plate,"",80,1500,1,
-                19,19,0,0));
+                19,19,0,0));*/
 
         return armorList;
     }
@@ -83,19 +125,19 @@ public class EquipmentDatabase {
     private ArrayList<Weapon> buildWeaponList(){
         ArrayList<Weapon> list = new ArrayList<>();
 
-        list.add(new Weapon(R.string.hand_axe, 4, 5, 6, 1, 0,
+        list.add(new Weapon("Hand Axe", 4, 5, 6, 1, 0,
                 0, "", false, false, 0, 0,
                 0, ""));
-        list.add(new Weapon(R.string.battle_axe, 7, 7, 8, 1, 0,
+        list.add(new Weapon("Battle Axe", 7, 7, 8, 1, 0,
                 0, "", false, false, 0, 0,
                 0, ""));
-        list.add(new Weapon(R.string.great_axe, 14, 15, 10, 1, 0,
+        list.add(new Weapon("Great Axe", 14, 15, 10, 1, 0,
                 0, "", true, false, 0, 0,
                 0, ""));
-        list.add(new Weapon(R.string.pickaxe, 6, 4, 6, 1, 0,
+        list.add(new Weapon("Pickaxe", 6, 4, 6, 1, 0,
                 0, "", false, false, 0, 0,
                 0, ""));
-        list.add(new Weapon(R.string.mattock, 8, 6, 8, 1, 0,
+        list.add(new Weapon("Mattock", 8, 6, 8, 1, 0,
                 0, "", false, false, 0, 0,
                 0, ""));
 
