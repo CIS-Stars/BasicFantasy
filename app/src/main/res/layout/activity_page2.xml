@@ -31,7 +31,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder2">
+                android:background="@drawable/customborder2">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="MAX: " />
+                        android:text ="MAX: " />
 
 
                     <TextView
@@ -60,12 +60,11 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="17" />
+                        tools:text ="17" />
 
                     <View
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
+                        android:layout_height="match_parent"/>
 
 
                     <TextView
@@ -74,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="CUR: " />
+                        android:text="CUR: " />
 
                     <TextView
                         android:id="@+id/hp_current_score"
@@ -97,7 +96,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder2">
+                android:background="@drawable/customborder2">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,7 +143,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder_weapon">
+                android:background="@drawable/customborder_weapon">
 
                 <TextView
                     android:id="@+id/weapon_1_name"
@@ -194,7 +193,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder_weapon">
+                android:background="@drawable/customborder_weapon">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -243,7 +242,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder_weapon">
+                android:background="@drawable/customborder_weapon">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -292,7 +291,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder_weapon">
+                android:background="@drawable/customborder_weapon">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -341,7 +340,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:textAlignment="center"
-                tools:background="@drawable/customborder_weapon">
+                android:background="@drawable/customborder_weapon">
 
                 <TextView
                     android:layout_width="wrap_content"

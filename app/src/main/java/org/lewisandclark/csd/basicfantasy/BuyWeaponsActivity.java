@@ -30,6 +30,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
 
     private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private EquipmentDatabase sEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
+    private List<Weapon> mWeaponList = sEquipmentDatabase.getWeaponList();
     private LinearLayout mWeaponsLayout;
     private List<CheckedTextView> mWeaponCheckedTextViews = new ArrayList<>();
     private Button mCheckoutButton;
@@ -104,7 +105,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
         if(!mBuyForFree.isChecked()) {
             for (int i = 0; i < mWeaponCheckedTextViews.size(); i++) {
                 if (mWeaponCheckedTextViews.get(i).isChecked()) {
-                    subtotal += sWeapons.get(i).getCostInGP();
+                    subtotal += mWeaponList.get(i).getCostInGP();
                 }
             }
         }
@@ -113,7 +114,7 @@ public class BuyWeaponsActivity extends AppCompatActivity {
 
     private void logIt() {
         for (Item item: sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getEquipmentList()) {
-            Log.d("EQUIPMENT:", getString(item.getNameID()));
+            Log.d("EQUIPMENT:", item.getNameID());
 
         }
     }

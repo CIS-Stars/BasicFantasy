@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -35,8 +36,14 @@ public class Page2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2);
 
+        mHPMaxScore = findViewById(R.id.hp_max_score);
+        mHPCurrentScore = findViewById(R.id.hp_current_score);
+        mACScore = findViewById(R.id.AC_score);
+
         mCurrentCharacter = sCharacters.getPlayerCharacter(sCurrentCharacterIndex);
-        mHPMaxScore.setText(Integer.toString(mCurrentCharacter.getTotalHitPoints()));
+        int totHP = mCurrentCharacter.getTotalHitPoints();
+        Log.d("PAGE2", "onCreate: total HP = "+ Integer.toString(totHP));
+        mHPMaxScore.setText(Integer.toString(totHP));
         mHPCurrentScore.setText(Integer.toString(mCurrentCharacter.getCurrentHitPoints()));
         mACScore.setText(Integer.toString(mCurrentCharacter.getArmorClass()));
 
