@@ -94,6 +94,7 @@ public class PlayerCharacter {
         this.mTotalHitPoints = 8;
         this.mCurrentHitPoints = 8;
         this.mEyeColor = "Green";
+        this.mAbilityRoll = 18;
 
         this.mStatRollCounter = 1;
         this.mStatArray[STR.ordinal()] = new AttributeScore(18);
@@ -102,6 +103,35 @@ public class PlayerCharacter {
         this.mStatArray[DEX.ordinal()] = new AttributeScore(12);
         this.mStatArray[CON.ordinal()] = new AttributeScore(8);
         this.mStatArray[CHA.ordinal()] = new AttributeScore(5);
+        this.autoCalc();
+    }
+
+    /**
+     * Other Generic Constructor for testing
+     */
+    public PlayerCharacter(String name){
+        this.mName = name;
+        this.mSex = Gender.FEMALE;
+        this.mRace = Race.ELF;
+        this.mPlayerClass = CharacterClass.MAGIC_USER;
+        this.mAge = 120;
+        this.mHeight = 65;
+        this.mWeight = 100;
+        this.mLevel = 1;
+        this.mXP = 0;
+        this.mHitDie = 4;
+        this.mTotalHitPoints = 0;
+        this.mCurrentHitPoints = 0;
+        this.mEyeColor = "Blue";
+        this.mAbilityRoll = 18;
+
+        this.mStatRollCounter = 1;
+        this.mStatArray[STR.ordinal()] = new AttributeScore(9);
+        this.mStatArray[INT.ordinal()] = new AttributeScore(17);
+        this.mStatArray[WIS.ordinal()] = new AttributeScore(12);
+        this.mStatArray[DEX.ordinal()] = new AttributeScore(15);
+        this.mStatArray[CON.ordinal()] = new AttributeScore(11);
+        this.mStatArray[CHA.ordinal()] = new AttributeScore(12);
         this.autoCalc();
     }
 
@@ -116,7 +146,7 @@ public class PlayerCharacter {
         }
         else{
             this.mTotalHitPoints += DieRoller.roll(this.mHitDie) +
-                    this.mStatArray[CON.ordinal()].getModifier();
+                    Integer.valueOf(this.mStatArray[CON.ordinal()].getModifier());
         }
         this.mCurrentHitPoints = this.mTotalHitPoints;
 
@@ -125,13 +155,16 @@ public class PlayerCharacter {
         mMeleeAttackBonus = mBaseAttackBonus + mStatArray[STR.ordinal()].getModifier();
         mRangedAttackBonus = mBaseAttackBonus + mStatArray[DEX.ordinal()].getModifier();
         this.mEquipmentList.add(new Weapon()); //adds entry to "Fists"
+        this.mEquipmentList.add(new Weapon("Hand Axe", 4, 5, 6, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
         this.mEquippedWeapon = (Weapon) this.mEquipmentList.get(0);
 
         //Armor Class and Armor
         this.mEquipmentList.add(new Armor());  //adds entry for "No Armor"
         this.mEquipmentList.add(new Shield()); // adds entry for "No Shield"
-        this.mEquippedArmor = (Armor) this.mEquipmentList.get(1);
-        this.mEquippedShield = (Shield) this.mEquipmentList.get(2);
+        this.mEquippedArmor = (Armor) this.mEquipmentList.get(2);
+        this.mEquippedShield = (Shield) this.mEquipmentList.get(3);
 
         //Saves
         switch (this.mPlayerClass){
@@ -385,6 +418,8 @@ public class PlayerCharacter {
         return mDeathRayPoisonSave;
     }
 
+    public String getDeathRayPoisonSaveString() {return String.valueOf(mDeathRayPoisonSave);}
+
     public void setDeathRayPoisonSave(int deathRayPoisonSave) {
         mDeathRayPoisonSave = deathRayPoisonSave;
     }
@@ -400,6 +435,8 @@ public class PlayerCharacter {
     public int getWandSave() {
         return mWandSave;
     }
+
+    public String getWandSaveString() {return String.valueOf(mWandSave);}
 
     public void setWandSave(int wandSave) {
         mWandSave = wandSave;
@@ -417,6 +454,8 @@ public class PlayerCharacter {
         return mParalysisStoneSave;
     }
 
+    public String getParalysisStoneSaveString() {return String.valueOf(mParalysisStoneSave);}
+
     public void setParalysisStoneSave(int paralysisStoneSave) {
         mParalysisStoneSave = paralysisStoneSave;
     }
@@ -433,6 +472,8 @@ public class PlayerCharacter {
         return mDragonBreathSave;
     }
 
+    public String getDragonBreathSaveString() {return String.valueOf(mDragonBreathSave);}
+
     public void setDragonBreathSave(int dragonBreathSave) {
         mDragonBreathSave = dragonBreathSave;
     }
@@ -448,6 +489,8 @@ public class PlayerCharacter {
     public int getRodStaveSpellSave() {
         return mRodStaveSpellSave;
     }
+
+    public String getRodStaveSpellSaveString() {return String.valueOf(mRodStaveSpellSave);}
 
     public void setRodStaveSpellSave(int rodStaveSpellSave) {
         mRodStaveSpellSave = rodStaveSpellSave;

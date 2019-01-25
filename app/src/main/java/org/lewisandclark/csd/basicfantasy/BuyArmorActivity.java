@@ -15,19 +15,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.lewisandclark.csd.basicfantasy.model.Armor;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
+import org.lewisandclark.csd.basicfantasy.model.EquipmentDatabase;
 import org.lewisandclark.csd.basicfantasy.model.Item;
 import org.lewisandclark.csd.basicfantasy.model.Shield;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sArmors;
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sShields;
 @SuppressLint("DefaultLocale")
+
 public class BuyArmorActivity extends AppCompatActivity {
 
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
+    private EquipmentDatabase mEquipmentDatabase = EquipmentDatabase.getEquipmentDatabase(this);
+    private List<Armor> sArmors = mEquipmentDatabase.getArmorList();
+    private List<Shield> sShields = mEquipmentDatabase.getShieldList();
     private LinearLayout mArmorLayout;
     private List<CheckedTextView> mArmorCheckedTextViews = new ArrayList<>();
     private List<CheckedTextView> mShieldCheckedTextViews = new ArrayList<>();
@@ -60,7 +64,7 @@ public class BuyArmorActivity extends AppCompatActivity {
         mArmorLayout = findViewById(R.id.armor_layout);
         for (Armor item: sArmors) {
             CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:     %.1fgp",getString(item.getNameID()),item.getCostInGP()));
+            v.setText(String.format("%s:     %.1fgp",item.getNameID(),item.getCostInGP()));
             v.setChecked(false);
             v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
             v.setOnClickListener(view -> onCheckTextClick(v));
@@ -71,7 +75,7 @@ public class BuyArmorActivity extends AppCompatActivity {
         //now the shields
         for (Shield item: sShields) {
             CheckedTextView v = new CheckedTextView(this);
-            v.setText(String.format("%s:     %.1fgp",getString(item.getNameID()),item.getCostInGP()));
+            v.setText(String.format("%s:     %.1fgp",item.getNameID(),item.getCostInGP()));
             v.setChecked(false);
             v.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24 );
             v.setOnClickListener(view -> onCheckTextClick(v));
@@ -83,12 +87,12 @@ public class BuyArmorActivity extends AppCompatActivity {
         mCheckoutButton.setOnClickListener(view -> {
             for(int i = 0; i< mArmorCheckedTextViews.size(); i++){
                 if(mArmorCheckedTextViews.get(i).isChecked()){
-                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sArmors.get(i));
+                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).addEquipment(sArmors.get(i));
                 }
             }
             for(int i = 0; i< mShieldCheckedTextViews.size(); i++){
                 if(mShieldCheckedTextViews.get(i).isChecked()){
-                    sCharacters.get(sCurrentCharacterIndex).addEquipment(sShields.get(i));
+                    sCharacters.getPlayerCharacter(sCurrentCharacterIndex).addEquipment(sShields.get(i));
                 }
             }
             logIt();
@@ -131,8 +135,8 @@ public class BuyArmorActivity extends AppCompatActivity {
     }
 
     private void logIt() {
-        for (Item item: sCharacters.get(sCurrentCharacterIndex).getEquipmentList()) {
-            Log.d("EQUIPMENT:", getString(item.getNameID()));
+        for (Item item: sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getEquipmentList()) {
+            Log.d("EQUIPMENT:", item.getNameID());
 
         }
     }

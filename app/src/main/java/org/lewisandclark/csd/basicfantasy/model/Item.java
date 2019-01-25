@@ -1,7 +1,5 @@
 package org.lewisandclark.csd.basicfantasy.model;
 
-import org.lewisandclark.csd.basicfantasy.R;
-
 /**
  * Base class for all items.
  *
@@ -9,7 +7,7 @@ import org.lewisandclark.csd.basicfantasy.R;
  */
 
 public class Item {
-    private int mNameID;           //the common name of the item - "sword"
+    private String mNameID;           //the common name of the item - "sword"
     private String mFormalName;     //a more formal name for a specific item - "Excalibur"
     private double mWeight;         //the weight of a single item
     private double mCostInGP;       //cost of a single item
@@ -17,7 +15,7 @@ public class Item {
     private boolean mEquipped;      //is the character wearing/carrying the item
 
     public Item(){
-        mNameID = R.string.thing;
+        mNameID = "thing";
         mFormalName = "";
         mWeight = 0;
         mCostInGP = 0;
@@ -34,7 +32,7 @@ public class Item {
      * @param costInGP          cost of a single item
      * @param quantity          how much of the item a character has
      */
-    public Item(int nameID, String formalName, double weight, double costInGP, int quantity) {
+    public Item(String nameID, String formalName, double weight, double costInGP, int quantity) {
         mNameID = nameID;
         mFormalName = formalName;
         mWeight = weight;
@@ -43,11 +41,11 @@ public class Item {
         mEquipped = false;
     }
 
-    public int getNameID() {
+    public String  getNameID() {
         return mNameID;
     }
 
-    public void setName(int nameID) {
+    public void setName(String nameID) {
         mNameID = nameID;
     }
 
@@ -90,4 +88,5 @@ public class Item {
     public void setEquipped(boolean equipped) {
         mEquipped = equipped;
     }
+
 }

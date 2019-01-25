@@ -10,13 +10,14 @@ import android.widget.RadioGroup;
 
 import org.lewisandclark.csd.basicfantasy.model.Attribute;
 import org.lewisandclark.csd.basicfantasy.model.AttributeScore;
+import org.lewisandclark.csd.basicfantasy.model.CharacterList;
 import org.lewisandclark.csd.basicfantasy.model.Race;
 
-import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCharacters;
 import static org.lewisandclark.csd.basicfantasy.HomeActivity.sCurrentCharacterIndex;
 
 public class ChooseRaceActivity extends AppCompatActivity {
 
+    private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private AttributeScore[] mStatArray;
     private Race mNewRace;
 
@@ -41,7 +42,7 @@ public class ChooseRaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_race);
 
-        mStatArray = sCharacters.get(sCurrentCharacterIndex).getStatArray();
+        mStatArray = sCharacters.getPlayerCharacter(sCurrentCharacterIndex).getStatArray();
 
         mRadioRaceGroup = findViewById(R.id.radio_race_group);
 
@@ -82,7 +83,7 @@ public class ChooseRaceActivity extends AppCompatActivity {
                                                 break;
             }
 
-            sCharacters.get(sCurrentCharacterIndex).setRace(mNewRace);
+            sCharacters.getPlayerCharacter(sCurrentCharacterIndex).setRace(mNewRace);
 
             Intent intent = ChooseClassActivity.newIntent(ChooseRaceActivity.this);
             startActivity(intent);

@@ -1,7 +1,5 @@
 package org.lewisandclark.csd.basicfantasy.model;
 
-import org.lewisandclark.csd.basicfantasy.R;
-
 /**
  * Created by Thorin Schmidt on 4/22/2018.
  */
@@ -13,7 +11,7 @@ public class Shield extends Item {
     private int mMagic2ndBonus;
 
     public Shield(){
-        super(R.string.no_shield, "", 0, 0, 1);
+        super("No Shield", "", 0, 0, 1);
         mACMeleeBonus = 0;
         mACMissileBonus = 0;
         mMagicBonus = 0;
@@ -21,7 +19,7 @@ public class Shield extends Item {
 
     }
 
-    public Shield(int nameID, String formalName, double weight, double costInGP, int quantity,
+    public Shield(String nameID, String formalName, double weight, double costInGP, int quantity,
                  int ACBonus, int ACMissileBonus, int magicBonus, int magic2ndBonus) {
         super(nameID, formalName, weight, costInGP, quantity);
         mACMeleeBonus = ACBonus;
