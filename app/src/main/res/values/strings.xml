@@ -79,4 +79,6 @@
     <string name="weapon5">Weapon 5</string>
     <string name="weapon_screen_add_weapon">Add Weapon</string>
     <string name="weapons">Weapons</string>
+    <string name="max">MAX:</string>
+    <string name="cur">CUR:</string>
 </resources>

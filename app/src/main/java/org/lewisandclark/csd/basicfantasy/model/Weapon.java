@@ -19,6 +19,7 @@ public class Weapon extends Item {
 
     public Weapon(){
         super("Fists", "", 0, 0, 1);
+        super.setEquipped(true);
         mAttackBonus = 0;
         mDamageDie = 3;
         mSecondAttackBonus = 0;

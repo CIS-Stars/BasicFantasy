@@ -155,13 +155,16 @@ public class PlayerCharacter {
         mMeleeAttackBonus = mBaseAttackBonus + mStatArray[STR.ordinal()].getModifier();
         mRangedAttackBonus = mBaseAttackBonus + mStatArray[DEX.ordinal()].getModifier();
         this.mEquipmentList.add(new Weapon()); //adds entry to "Fists"
+        this.mEquipmentList.add(new Weapon("Hand Axe", 4, 5, 6, 1, 0,
+                0, "", false, false, 0, 0,
+                0, ""));
         this.mEquippedWeapon = (Weapon) this.mEquipmentList.get(0);
 
         //Armor Class and Armor
         this.mEquipmentList.add(new Armor());  //adds entry for "No Armor"
         this.mEquipmentList.add(new Shield()); // adds entry for "No Shield"
-        this.mEquippedArmor = (Armor) this.mEquipmentList.get(1);
-        this.mEquippedShield = (Shield) this.mEquipmentList.get(2);
+        this.mEquippedArmor = (Armor) this.mEquipmentList.get(2);
+        this.mEquippedShield = (Shield) this.mEquipmentList.get(3);
 
         //Saves
         switch (this.mPlayerClass){

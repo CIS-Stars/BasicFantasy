@@ -26,9 +26,9 @@ import static org.lewisandclark.csd.basicfantasy.model.Attribute.INT;
 import static org.lewisandclark.csd.basicfantasy.model.Attribute.STR;
 import static org.lewisandclark.csd.basicfantasy.model.Attribute.WIS;
 
-public class Page1Activity extends AppCompatActivity {
+public class StatsActivity extends AppCompatActivity {
 
-    static final String TAG = "Page1Activity";
+    static final String TAG = "StatsActivity";
 
     private CharacterList sCharacters = CharacterList.getPlayerCharacterList(this);
     private PlayerCharacter mCurrentCharacter;
@@ -65,7 +65,7 @@ public class Page1Activity extends AppCompatActivity {
     private TextView mTextViewRightNavigate;
 
     public static Intent newIntent(Context packageContext){
-        Intent theIntent = new Intent(packageContext, Page1Activity.class);
+        Intent theIntent = new Intent(packageContext, StatsActivity.class);
         //Intent Extras go here
         return theIntent;
     }
@@ -73,7 +73,7 @@ public class Page1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page1);
+        setContentView(R.layout.activity_stats);
 
         mCurrentCharacter = sCharacters.getPlayerCharacter(sCurrentCharacterIndex);
 
@@ -216,7 +216,7 @@ public class Page1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 //open left screen
-                Intent i = Page2Activity.newIntent(Page1Activity.this);
+                Intent i = CombatActivity.newIntent(StatsActivity.this);
                 startActivity(i);
                 overridePendingTransition(R.anim.left_to_right_in, R.anim.left_to_right_out);
             }
@@ -226,7 +226,7 @@ public class Page1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 //open right screen
-                Intent i = Page2Activity.newIntent(Page1Activity.this);
+                Intent i = CombatActivity.newIntent(StatsActivity.this);
                 startActivity(i);
                 overridePendingTransition(R.anim.right_to_left_in, R.anim.right_to_left_out);
             }

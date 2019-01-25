@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mOpenCharacterButton = findViewById(R.id.open_button);
         mOpenCharacterButton.setOnClickListener(view -> {
-            Intent theIntent = Page1Activity.newIntent(HomeActivity.this);
+            Intent theIntent = StatsActivity.newIntent(HomeActivity.this);
             startActivity(theIntent);
         });
 
